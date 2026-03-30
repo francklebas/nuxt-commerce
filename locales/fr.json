@@ -1,0 +1,115 @@
+{
+  "header": {
+    "brandTagline": "Atelier Pret-a-Porter",
+    "shop": "Boutique",
+    "quickCart": "Panier rapide"
+  },
+  "footer": {
+    "stack": "Made with Nuxt 4, Pinia, Supabase and Stripe.",
+    "brand": "Aurora Studio 2026"
+  },
+  "home": {
+    "hero": {
+      "badge": "Nouvelle capsule SS26",
+      "title": "Des pieces premium qui convertissent en coup de coeur.",
+      "subtitle": "Funnel commerce complet: landing, preuve sociale, offre claire et checkout Stripe en quelques clics.",
+      "ctaCollection": "Voir la collection",
+      "ctaCart": "Aller au panier",
+      "imageAlt": "Lookbook de la collection",
+      "socialProof": "97% des clientes valident la coupe et la matiere des la premiere commande."
+    },
+    "funnel": {
+      "title": "Funnel en 3 etapes",
+      "step1Title": "1. Hook visuel",
+      "step1Copy": "Univers de marque fort, image premium et proposition claire.",
+      "step2Title": "2. Offre concise",
+      "step2Copy": "Trois best-sellers avec angle produit, preuve sociale et urgence douce.",
+      "step3Title": "3. Checkout rapide",
+      "step3Copy": "Panier Pinia puis redirection Stripe securisee sans friction."
+    },
+    "products": {
+      "title": "Les 3 produits phares",
+      "viewAll": "Tout voir",
+      "error": "Impossible de charger les produits Supabase. Verifie les variables d'environnement."
+    },
+    "shipping": {
+      "card1Label": "Livraison 48h",
+      "card1Copy": "Preparation sous 24h, livraison suivie en France et Europe.",
+      "card2Label": "Retours 30 jours",
+      "card2Copy": "Essayage serein: retour simplifie et remboursement rapide.",
+      "card3Label": "Support styliste",
+      "card3Copy": "Conseil taille et look par email, reponse sous 1 jour ouvre."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Comment choisir ma taille ?",
+      "a1": "Prends ta taille habituelle. En cas d'hesitation, le guide taille recommande de choisir la taille au-dessus.",
+      "q2": "Quels sont les delais de livraison ?",
+      "a2": "Les commandes partent en 24h et arrivent en 2 a 4 jours ouvres en Europe.",
+      "q3": "Puis-je retourner une piece ?",
+      "a3": "Oui, tu as 30 jours apres reception pour retourner un article non porte.",
+      "q4": "Le paiement est-il securise ?",
+      "a4": "Oui, le checkout utilise Stripe avec protection 3D Secure et chiffrement complet."
+    }
+  },
+  "shop": {
+    "badge": "Collection capsule",
+    "title": "Boutique",
+    "subtitle": "Tous les produits sont synchronises depuis Supabase (3 references).",
+    "loading": "Chargement en cours...",
+    "error": "Erreur de chargement des produits."
+  },
+  "productCard": {
+    "add": "Ajouter",
+    "view": "Voir"
+  },
+  "product": {
+    "notFound": "Produit introuvable.",
+    "size": "Taille",
+    "sizeGuide": "Guide taille: coupe ajustee. Si tu hesites entre deux tailles, prends la plus grande.",
+    "instantOffer": "Offre instantanee",
+    "shippingInfo": "Livraison offerte des 120 EUR et retours simplifies pendant 30 jours.",
+    "addToCart": "Ajouter au panier",
+    "checkout": "Checkout",
+    "shippingTitle": "Livraison et retours",
+    "shippingDetail": "Expedition sous 24h (hors week-end). Livraison suivie 2 a 4 jours en Europe.",
+    "returnsDetail": "Retours sous 30 jours. Les articles doivent etre neufs, avec etiquettes."
+  },
+  "cart": {
+    "title": "Panier",
+    "itemsCount": "{count} article(s)",
+    "empty": "Ton panier est vide.",
+    "backToShop": "Revenir a la boutique",
+    "remove": "Retirer",
+    "summary": "Recapitulatif",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "free": "Offerte",
+    "total": "Total",
+    "redirecting": "Redirection...",
+    "pay": "Payer avec Stripe",
+    "checkoutError": "Erreur checkout Stripe.",
+    "toast": {
+      "added": "{name} ajoute (taille {size}) - quantite {quantity}"
+    },
+    "drawer": {
+      "title": "Panier",
+      "close": "Fermer",
+      "checkout": "Finaliser la commande"
+    }
+  },
+  "checkout": {
+    "success": {
+      "badge": "Paiement confirme",
+      "title": "Merci pour ta commande",
+      "copy": "Ton look est reserve. Tu recevras un email de suivi des que le colis part de notre atelier.",
+      "cta": "Continuer le shopping"
+    },
+    "cancel": {
+      "badge": "Paiement annule",
+      "title": "Pas de stress",
+      "copy": "Ton panier est conserve. Tu peux reprendre le checkout quand tu veux.",
+      "cta": "Revenir au panier"
+    }
+  }
+}

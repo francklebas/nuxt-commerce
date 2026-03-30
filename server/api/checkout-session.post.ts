@@ -2,7 +2,7 @@ import Stripe from 'stripe'
 import { createClient } from '@supabase/supabase-js'
 
 interface CheckoutBody {
-  items?: Array<{ id: number, quantity: number }>
+  items?: Array<{ id: number, quantity: number, size?: string }>
 }
 
 interface ProductRow {
@@ -67,24 +67,38 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: error?.message || 'Aucun produit valide.' })
   }
 
-  const quantityById = new Map<number, number>()
-  for (const item of items) {
-    const quantity = Math.min(Math.max(Number(item.quantity || 1), 1), 10)
-    quantityById.set(item.id, quantity)
+  const productsById = new Map<number, ProductRow>()
+  for (const product of products as ProductRow[]) {
+    productsById.set(product.id, product)
   }
 
-  const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = (products as ProductRow[]).map((product) => ({
-    quantity: quantityById.get(product.id) || 1,
-    price_data: {
-      currency: 'eur',
-      unit_amount: product.price_cents,
-      product_data: {
-        name: product.name,
-        description: product.description,
-        images: [resolveProductImage(product.image_url, product.slug)]
-      }
+  const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = []
+  for (const item of items) {
+    const product = productsById.get(item.id)
+    if (!product) {
+      continue
     }
-  }))
+
+    const quantity = Math.min(Math.max(Number(item.quantity || 1), 1), 10)
+    const size = String(item.size || 'M').toUpperCase()
+
+    lineItems.push({
+      quantity,
+      price_data: {
+        currency: 'eur',
+        unit_amount: product.price_cents,
+        product_data: {
+          name: `${product.name} - ${size}`,
+          description: product.description,
+          images: [resolveProductImage(product.image_url, product.slug)]
+        }
+      }
+    })
+  }
+
+  if (!lineItems.length) {
+    throw createError({ statusCode: 400, statusMessage: 'Aucun produit valide.' })
+  }
 
   const stripe = new Stripe(stripeKey)
   const baseUrl = getRequestHeader(event, 'origin') || String(config.public.appUrl || 'http://localhost:3000')

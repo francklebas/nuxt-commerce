@@ -1,0 +1,115 @@
+{
+  "header": {
+    "brandTagline": "Ready-to-Wear Atelier",
+    "shop": "Shop",
+    "quickCart": "Quick cart"
+  },
+  "footer": {
+    "stack": "Made with Nuxt 4, Pinia, Supabase and Stripe.",
+    "brand": "Aurora Studio 2026"
+  },
+  "home": {
+    "hero": {
+      "badge": "New SS26 capsule",
+      "title": "Premium pieces designed to convert into instant favorites.",
+      "subtitle": "Complete commerce funnel: landing page, social proof, clear offer, and Stripe checkout in a few clicks.",
+      "ctaCollection": "See collection",
+      "ctaCart": "Go to cart",
+      "imageAlt": "Collection lookbook",
+      "socialProof": "97% of customers validate fit and fabric quality from the first order."
+    },
+    "funnel": {
+      "title": "3-step funnel",
+      "step1Title": "1. Visual hook",
+      "step1Copy": "Strong brand universe, premium image, and clear value proposition.",
+      "step2Title": "2. Concise offer",
+      "step2Copy": "Three best-sellers with product angle, social proof, and light urgency.",
+      "step3Title": "3. Fast checkout",
+      "step3Copy": "Pinia cart, then secure Stripe redirection with minimal friction."
+    },
+    "products": {
+      "title": "Top 3 products",
+      "viewAll": "View all",
+      "error": "Unable to load Supabase products. Check your environment variables."
+    },
+    "shipping": {
+      "card1Label": "48h shipping",
+      "card1Copy": "Prepared within 24h, tracked shipping in France and Europe.",
+      "card2Label": "30-day returns",
+      "card2Copy": "Stress-free try-on: easy returns and quick refund.",
+      "card3Label": "Stylist support",
+      "card3Copy": "Sizing and outfit guidance by email, reply within one business day."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "How do I choose my size?",
+      "a1": "Pick your usual size. If you are between sizes, the size guide suggests choosing one size up.",
+      "q2": "What are the delivery times?",
+      "a2": "Orders ship within 24h and arrive in 2 to 4 business days in Europe.",
+      "q3": "Can I return an item?",
+      "a3": "Yes, you have 30 days after delivery to return an unworn item.",
+      "q4": "Is payment secure?",
+      "a4": "Yes, checkout uses Stripe with 3D Secure protection and full encryption."
+    }
+  },
+  "shop": {
+    "badge": "Capsule collection",
+    "title": "Shop",
+    "subtitle": "All products are synced from Supabase (3 references).",
+    "loading": "Loading...",
+    "error": "Unable to load products."
+  },
+  "productCard": {
+    "add": "Add",
+    "view": "View"
+  },
+  "product": {
+    "notFound": "Product not found.",
+    "size": "Size",
+    "sizeGuide": "Size guide: fitted cut. If you are between sizes, choose the larger one.",
+    "instantOffer": "Instant offer",
+    "shippingInfo": "Free shipping above 120 EUR and easy returns for 30 days.",
+    "addToCart": "Add to cart",
+    "checkout": "Checkout",
+    "shippingTitle": "Shipping and returns",
+    "shippingDetail": "Ships in 24h (except weekends). Tracked delivery in 2 to 4 days across Europe.",
+    "returnsDetail": "Returns within 30 days. Items must be unworn and returned with tags."
+  },
+  "cart": {
+    "title": "Cart",
+    "itemsCount": "{count} item(s)",
+    "empty": "Your cart is empty.",
+    "backToShop": "Back to shop",
+    "remove": "Remove",
+    "summary": "Summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Total",
+    "redirecting": "Redirecting...",
+    "pay": "Pay with Stripe",
+    "checkoutError": "Stripe checkout error.",
+    "toast": {
+      "added": "{name} added (size {size}) - quantity {quantity}"
+    },
+    "drawer": {
+      "title": "Cart",
+      "close": "Close",
+      "checkout": "Complete order"
+    }
+  },
+  "checkout": {
+    "success": {
+      "badge": "Payment confirmed",
+      "title": "Thanks for your order",
+      "copy": "Your look is reserved. You will receive a tracking email as soon as your parcel leaves our atelier.",
+      "cta": "Continue shopping"
+    },
+    "cancel": {
+      "badge": "Payment canceled",
+      "title": "No stress",
+      "copy": "Your cart is saved. You can resume checkout anytime.",
+      "cta": "Back to cart"
+    }
+  }
+}

@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import type { Product } from '~/types/product'
 
-defineProps<{ product: Product }>()
+const props = defineProps<{ product: Product }>()
+const cartStore = useCartStore()
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+const quickAdd = () => {
+  cartStore.addProduct(props.product, 'M')
+}
 </script>
 
 <template>
@@ -23,12 +30,21 @@ defineProps<{ product: Product }>()
       <p class="text-sm font-semibold uppercase tracking-[0.16em] text-clay-700">{{ product.highlight }}</p>
       <div class="flex items-center justify-between pt-2">
         <p class="text-lg font-bold text-ink-900">{{ (product.priceCents / 100).toFixed(2) }} EUR</p>
-        <NuxtLink
-          :to="`/produit/${product.slug}`"
-          class="rounded-full border border-clay-700 px-4 py-2 text-sm font-semibold text-clay-700 transition hover:bg-clay-700 hover:text-white"
-        >
-          Voir
-        </NuxtLink>
+        <div class="flex items-center gap-2">
+          <button
+            class="rounded-full bg-clay-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-ink-900"
+            type="button"
+            @click="quickAdd"
+          >
+            {{ t('productCard.add') }}
+          </button>
+          <NuxtLink
+            :to="localePath(`/produit/${product.slug}`)"
+            class="rounded-full border border-clay-700 px-4 py-2 text-sm font-semibold text-clay-700 transition hover:bg-clay-700 hover:text-white"
+          >
+            {{ t('productCard.view') }}
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </article>

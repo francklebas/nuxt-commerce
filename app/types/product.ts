@@ -5,15 +5,18 @@ export interface Product {
   description: string
   badge: string
   imageUrl: string
+  imageUrls: string[]
   priceCents: number
   highlight: string
 }
 
 export interface CartItem {
+  lineId: string
   id: number
   slug: string
   name: string
   imageUrl: string
+  size: string
   priceCents: number
   quantity: number
 }
