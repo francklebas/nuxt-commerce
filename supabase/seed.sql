@@ -27,7 +27,7 @@ values
     'blazer-nova-sable',
     'Blazer oversize structure, drape impeccable et coupe editoriale pour un look premium.',
     'Best seller',
-    'https://image.pollinations.ai/prompt/ai%20generated%20fashion%20photo%20beige%20oversized%20blazer%20studio%20lighting%20high%20detail',
+    'https://picsum.photos/id/325/1200/1600',
     'Finition tailleur italienne',
     14900,
     1
@@ -37,7 +37,7 @@ values
     'pantalon-flux-creme',
     'Pantalon taille haute fluide avec tombant net pour journee active et soiree chic.',
     'Nouveau',
-    'https://image.pollinations.ai/prompt/ai%20generated%20fashion%20photo%20cream%20wide%20leg%20pants%20minimal%20studio%20shoot',
+    'https://picsum.photos/id/342/1200/1600',
     'Confort premium toute saison',
     8900,
     2
@@ -47,7 +47,7 @@ values
     'trench-aura-cacao',
     'Trench long en gabardine legere, volume moderne et details couture pour une silhouette forte.',
     'Edition limitee',
-    'https://image.pollinations.ai/prompt/ai%20generated%20fashion%20photo%20dark%20brown%20trench%20coat%20runway%20style',
+    'https://picsum.photos/id/64/1200/1600',
     'Piece statement de la capsule',
     17900,
     3

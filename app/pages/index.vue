@@ -29,7 +29,7 @@ const { data: products, error } = await useFetch<Product[]>('/api/products')
 
       <div class="relative overflow-hidden rounded-[2rem] border border-clay-500/25 bg-white/75 p-5 shadow-soft">
         <img
-          src="https://image.pollinations.ai/prompt/editorial%20fashion%20portrait%20neutral%20tones%20studio%20lighting%20high%20detail"
+          src="https://picsum.photos/id/823/1400/900"
           alt="Lookbook AI"
           class="h-[420px] w-full rounded-[1.4rem] object-cover"
         >

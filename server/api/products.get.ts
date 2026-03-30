@@ -11,6 +11,22 @@ interface ProductRow {
   highlight: string
 }
 
+const fallbackImageBySlug: Record<string, string> = {
+  'blazer-nova-sable': 'https://picsum.photos/id/325/1200/1600',
+  'pantalon-flux-creme': 'https://picsum.photos/id/342/1200/1600',
+  'trench-aura-cacao': 'https://picsum.photos/id/64/1200/1600'
+}
+
+const resolveProductImage = (imageUrl: string, slug: string): string => {
+  const fallbackUrl = fallbackImageBySlug[slug]
+
+  if (!fallbackUrl) {
+    return imageUrl
+  }
+
+  return imageUrl.includes('image.pollinations.ai') ? fallbackUrl : imageUrl
+}
+
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   const supabaseUrl = String(config.public.supabaseUrl || '')
@@ -49,7 +65,7 @@ export default defineEventHandler(async () => {
     slug: row.slug,
     description: row.description,
     badge: row.badge,
-    imageUrl: row.image_url,
+    imageUrl: resolveProductImage(row.image_url, row.slug),
     priceCents: row.price_cents,
     highlight: row.highlight
   }))

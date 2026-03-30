@@ -7,10 +7,27 @@ interface CheckoutBody {
 
 interface ProductRow {
   id: number
+  slug: string
   name: string
   description: string
   image_url: string
   price_cents: number
+}
+
+const fallbackImageBySlug: Record<string, string> = {
+  'blazer-nova-sable': 'https://picsum.photos/id/325/1200/1600',
+  'pantalon-flux-creme': 'https://picsum.photos/id/342/1200/1600',
+  'trench-aura-cacao': 'https://picsum.photos/id/64/1200/1600'
+}
+
+const resolveProductImage = (imageUrl: string, slug: string): string => {
+  const fallbackUrl = fallbackImageBySlug[slug]
+
+  if (!fallbackUrl) {
+    return imageUrl
+  }
+
+  return imageUrl.includes('image.pollinations.ai') ? fallbackUrl : imageUrl
 }
 
 export default defineEventHandler(async (event) => {
@@ -42,7 +59,7 @@ export default defineEventHandler(async (event) => {
 
   const { data: products, error } = await supabase
     .from('products')
-    .select('id, name, description, image_url, price_cents')
+    .select('id, slug, name, description, image_url, price_cents')
     .in('id', ids)
     .eq('is_active', true)
 
@@ -64,7 +81,7 @@ export default defineEventHandler(async (event) => {
       product_data: {
         name: product.name,
         description: product.description,
-        images: [product.image_url]
+        images: [resolveProductImage(product.image_url, product.slug)]
       }
     }
   }))
