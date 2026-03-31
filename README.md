@@ -1,67 +1,50 @@
-# Aurora Commerce - Nuxt 4
+# AURORA Commerce
 
-Application e-commerce pret-a-porter avec funnel de vente complet:
+Premium Nuxt 4 storefront designed for solo operators and small brands.
 
-- Landing page conversion
-- Boutique (3 produits)
-- Fiches produit
-- Panier (Pinia)
-- Paiement Stripe Checkout
-- Produits charges depuis Supabase
+This project is built to be sold, reused, and shipped fast:
+- Product catalog from Nuxt Content (YAML)
+- Conversion-oriented storefront (home, shop, product, cart)
+- Stripe Checkout funnel
+- i18n (English default, French available)
+- Light/Dark mode
 
-## Stack
+## Live Concept
 
-- Nuxt 4 + Vue 3
+`Nuxt Content -> Nuxt Frontend -> Stripe Checkout -> Success/Cancel`
+
+No heavyweight commerce backend required for a small curated catalog.
+
+## Tech Stack
+
+- Nuxt 4
+- Vue 3
 - Tailwind CSS
 - Pinia
-- Supabase
-- Stripe
+- Nuxt Content v3
+- Stripe Checkout
+- Bun
 
-## Installation
+## Quick Start
 
 ```bash
 bun install
 cp .env.example .env
-```
-
-## Variables d'environnement
-
-Remplis les variables dans `.env`:
-
-```bash
-NUXT_PUBLIC_APP_URL=http://localhost:3000
-
-NUXT_PUBLIC_SUPABASE_URL=
-NUXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-
-STRIPE_SECRET_KEY=
-NUXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-```
-
-## Base de donnees Supabase
-
-1. Cree un projet Supabase
-2. Ouvre SQL Editor
-3. Execute le script `supabase/seed.sql`
-
-Le script cree la table `products`, active RLS et ajoute 3 produits avec images generees par IA.
-
-## Lancer le projet
-
-```bash
 bun run dev
 ```
 
-Application disponible sur `http://localhost:3000`.
+Open `http://localhost:3000`.
 
-## Paiement Stripe
+## Environment Variables
 
-Le endpoint server `server/api/checkout-session.post.ts` cree une session Stripe avec:
+Required:
 
-- quantites du panier
-- prix et details produits recuperes depuis Supabase
-- redirection vers `/success` et `/cancel`
+```bash
+NUXT_PUBLIC_APP_URL=http://localhost:3000
+STRIPE_SECRET_KEY=
+```
+
+Optional legacy vars may exist in config but are not required for the current Nuxt Content + Stripe flow.
 
 ## Build
 
@@ -69,4 +52,23 @@ Le endpoint server `server/api/checkout-session.post.ts` cree une session Stripe
 bun run build
 bun run preview
 ```
-# nuxt-commerce
+
+## Documentation
+
+- `docs/architecture.md`
+- `docs/configuration.md`
+- `docs/catalog-content.md`
+- `docs/payments-stripe.md`
+- `docs/branding-design.md`
+- `docs/qa-release.md`
+- `docs/monetization.md`
+
+## Lighthouse
+
+```bash
+lighthouse http://127.0.0.1:3000 --output json --output-path ./lighthouse.json
+```
+
+## License
+
+See `LICENSE`.

@@ -1,79 +1,131 @@
 {
   "header": {
-    "brandTagline": "Atelier Pret-a-Porter",
+    "brandTagline": "Maison Atelier Paris",
     "shop": "Boutique",
-    "quickCart": "Panier rapide"
+    "quickCart": "Panier rapide",
+    "faq": "FAQ",
+    "wishlist": "Wishlist",
+    "darkMode": "Dark",
+    "lightMode": "Light"
   },
   "footer": {
-    "stack": "Made with Nuxt 4, Pinia, Supabase and Stripe.",
+    "stack": "Made with Nuxt 4, Pinia, Nuxt Content and Stripe.",
     "brand": "Aurora Studio 2026"
   },
   "home": {
     "hero": {
-      "badge": "Nouvelle capsule SS26",
-      "title": "Des pieces premium qui convertissent en coup de coeur.",
-      "subtitle": "Funnel commerce complet: landing, preuve sociale, offre claire et checkout Stripe en quelques clics.",
+      "badge": "Capsule Atelier 2026",
+      "title": "Des essentiels tailleurs penses pour durer plus qu'une saison.",
+      "subtitle": "Trois silhouettes construites comme une garde-robe reelle: coupe nette, matieres certifiees et livraison suivie.",
       "ctaCollection": "Voir la collection",
       "ctaCart": "Aller au panier",
+      "editorialTag": "Lookbook studio",
       "imageAlt": "Lookbook de la collection",
-      "socialProof": "97% des clientes valident la coupe et la matiere des la premiere commande."
+      "socialProof": "4,8/5 sur les premieres commandes: coupe, tombant et qualite percue cites en priorite."
+    },
+    "manifesto": {
+      "kicker": "Direction artistique",
+      "quote": "Une garde-robe concise, coupes nettes, matieres responsables et style editorial sans effort."
     },
     "funnel": {
       "title": "Funnel en 3 etapes",
       "step1Title": "1. Hook visuel",
-      "step1Copy": "Univers de marque fort, image premium et proposition claire.",
+      "step1Copy": "Direction artistique claire, hero fort et argument matiere des le premier ecran.",
       "step2Title": "2. Offre concise",
-      "step2Copy": "Trois best-sellers avec angle produit, preuve sociale et urgence douce.",
+      "step2Copy": "Offre courte, tailles disponibles et details concrets pour reduire l'hesitation.",
       "step3Title": "3. Checkout rapide",
-      "step3Copy": "Panier Pinia puis redirection Stripe securisee sans friction."
+      "step3Copy": "Ajout rapide, recap clair et checkout Stripe en sortie de tunnel."
     },
     "products": {
-      "title": "Les 3 produits phares",
+      "title": "La collection signature",
       "viewAll": "Tout voir",
-      "error": "Impossible de charger les produits Supabase. Verifie les variables d'environnement."
+      "error": "Impossible de charger les produits. Verifie les fichiers content et les logs runtime."
     },
     "shipping": {
-      "card1Label": "Livraison 48h",
-      "card1Copy": "Preparation sous 24h, livraison suivie en France et Europe.",
+      "card1Label": "Expedition 24h",
+      "card1Copy": "Commande preparee en atelier puis expediee sous 24h ouvrables.",
       "card2Label": "Retours 30 jours",
-      "card2Copy": "Essayage serein: retour simplifie et remboursement rapide.",
+      "card2Copy": "Essayage maison sans pression, etiquette retour prepayee disponible.",
       "card3Label": "Support styliste",
-      "card3Copy": "Conseil taille et look par email, reponse sous 1 jour ouvre."
+      "card3Copy": "Aide taille et style par email sous 1 jour ouvre."
     },
     "faq": {
       "title": "FAQ",
       "q1": "Comment choisir ma taille ?",
-      "a1": "Prends ta taille habituelle. En cas d'hesitation, le guide taille recommande de choisir la taille au-dessus.",
+      "a1": "Prends ta taille habituelle. Entre deux tailles, prends la plus grande pour un tomber plus souple.",
       "q2": "Quels sont les delais de livraison ?",
-      "a2": "Les commandes partent en 24h et arrivent en 2 a 4 jours ouvres en Europe.",
+      "a2": "France: 48h. Europe: 2 a 4 jours ouvres selon destination.",
       "q3": "Puis-je retourner une piece ?",
-      "a3": "Oui, tu as 30 jours apres reception pour retourner un article non porte.",
+      "a3": "Oui, retour possible sous 30 jours pour les pieces non portees avec etiquettes.",
       "q4": "Le paiement est-il securise ?",
-      "a4": "Oui, le checkout utilise Stripe avec protection 3D Secure et chiffrement complet."
+      "a4": "Oui, paiement Stripe avec verification 3D Secure et chiffrement de bout en bout."
+    },
+    "testimonials": {
+      "title": "Avis clientes",
+      "quote1": "La veste tombe parfaitement, aucune retouche. Je la porte au bureau comme le soir.",
+      "author1": "Lea M. - Lyon",
+      "quote2": "Le pantalon reste net toute la journee, meme apres transport. Super matiere.",
+      "author2": "Camille R. - Bruxelles",
+      "quote3": "Trench recu en 2 jours, finitions serieuses et coupe moderne.",
+      "author3": "Sarah D. - Paris"
     }
   },
   "shop": {
     "badge": "Collection capsule",
     "title": "Boutique",
-    "subtitle": "Tous les produits sont synchronises depuis Supabase (3 references).",
+    "subtitle": "Catalogue synchronise depuis Nuxt Content (7 pieces).",
+    "searchPlaceholder": "Rechercher une piece, une matiere...",
     "loading": "Chargement en cours...",
-    "error": "Erreur de chargement des produits."
+    "error": "Erreur de chargement des produits.",
+    "noResults": "Aucun produit ne correspond a ces filtres. Essaie une autre taille ou categorie.",
+    "wishlistTitle": "Tes favoris",
+    "wishlistEmpty": "Aucun favori pour le moment. Clique sur le coeur d'un produit pour le sauvegarder.",
+    "goToCart": "Voir le panier",
+    "filters": {
+      "allCategories": "Toutes categories",
+      "allSizes": "Toutes tailles",
+      "featured": "Mis en avant",
+      "priceAsc": "Prix croissant",
+      "priceDesc": "Prix decroissant"
+    }
   },
   "productCard": {
     "add": "Ajouter",
-    "view": "Voir"
+    "view": "Voir",
+    "wishlist": "Ajouter aux favoris"
   },
   "product": {
     "notFound": "Produit introuvable.",
     "size": "Taille",
     "sizeGuide": "Guide taille: coupe ajustee. Si tu hesites entre deux tailles, prends la plus grande.",
+    "detailsTitle": "Details produit",
+    "composition": "Composition",
+    "fabricWeight": "Poids tissu",
+    "origin": "Origine",
+    "care": "Entretien",
+    "fit": "Coupe",
+    "sizeChartTitle": "Guide de tailles (cm)",
+    "chest": "Poitrine",
+    "waist": "Taille",
+    "hips": "Hanches",
+    "length": "Longueur",
+    "reviewsTitle": "Avis verifies",
     "instantOffer": "Offre instantanee",
     "shippingInfo": "Livraison offerte des 120 EUR et retours simplifies pendant 30 jours.",
+    "mobileReady": "Pret a commander",
     "addToCart": "Ajouter au panier",
     "checkout": "Checkout",
     "shippingTitle": "Livraison et retours",
     "shippingDetail": "Expedition sous 24h (hors week-end). Livraison suivie 2 a 4 jours en Europe.",
-    "returnsDetail": "Retours sous 30 jours. Les articles doivent etre neufs, avec etiquettes."
+    "returnsDetail": "Retours sous 30 jours. Les articles doivent etre neufs, avec etiquettes.",
+    "categories": {
+      "tailoring": "Tailoring",
+      "bottoms": "Bas",
+      "outerwear": "Outerwear",
+      "shirts": "Chemises",
+      "dresses": "Robes",
+      "sweats": "Sweats"
+    }
   },
   "cart": {
     "title": "Panier",
@@ -111,5 +163,21 @@
       "copy": "Ton panier est conserve. Tu peux reprendre le checkout quand tu veux.",
       "cta": "Revenir au panier"
     }
+  },
+  "seo": {
+    "defaultTitle": "AURORA - Maison Atelier Paris",
+    "defaultDescription": "AURORA propose des essentiels premium: blazers, trenchs, chemises, robes et manteaux avec paiement Stripe securise.",
+    "homeTitle": "AURORA - Collection Capsule Premium",
+    "homeDescription": "Decouvre la collection AURORA: tailoring contemporain, matieres premium et livraison suivie.",
+    "shopTitle": "Boutique AURORA",
+    "shopDescription": "Parcours la boutique AURORA et trouve la piece ideale parmi les essentials premium de la capsule.",
+    "cartTitle": "Panier AURORA",
+    "cartDescription": "Finalise ta commande AURORA via Stripe Checkout, paiement securise en quelques clics.",
+    "successTitle": "Commande confirmee - AURORA",
+    "successDescription": "Paiement confirme. Merci pour ta commande AURORA.",
+    "cancelTitle": "Paiement annule - AURORA",
+    "cancelDescription": "Le paiement a ete annule. Tu peux reprendre ton checkout quand tu veux.",
+    "productFallbackTitle": "Produit AURORA",
+    "productFallbackDescription": "Decouvre les details produit AURORA: coupe, matiere, guide tailles et avis verifies."
   }
 }

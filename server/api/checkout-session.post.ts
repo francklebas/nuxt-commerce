@@ -1,96 +1,121 @@
 import Stripe from 'stripe'
-import { createClient } from '@supabase/supabase-js'
 
 interface CheckoutBody {
-  items?: Array<{ id: number, quantity: number, size?: string }>
+  items?: Array<{ slug: string, quantity: number, size?: string }>
 }
 
-interface ProductRow {
-  id: number
-  slug: string
-  name: string
-  description: string
-  image_url: string
-  price_cents: number
+interface RateLimitEntry {
+  count: number
+  resetAt: number
 }
 
-const fallbackImageBySlug: Record<string, string> = {
-  'blazer-nova-sable': 'https://picsum.photos/id/325/1200/1600',
-  'pantalon-flux-creme': 'https://picsum.photos/id/342/1200/1600',
-  'trench-aura-cacao': 'https://picsum.photos/id/64/1200/1600'
-}
+const RATE_LIMIT_WINDOW_MS = 60_000
+const RATE_LIMIT_MAX_REQUESTS = 12
 
-const resolveProductImage = (imageUrl: string, slug: string): string => {
-  const fallbackUrl = fallbackImageBySlug[slug]
+const rateLimitStore =
+  (globalThis as typeof globalThis & { __checkoutRateLimitStore?: Map<string, RateLimitEntry> }).__checkoutRateLimitStore ||
+  new Map<string, RateLimitEntry>()
 
-  if (!fallbackUrl) {
-    return imageUrl
+;(globalThis as typeof globalThis & { __checkoutRateLimitStore?: Map<string, RateLimitEntry> }).__checkoutRateLimitStore = rateLimitStore
+
+const getClientIp = (event: any) => {
+  const forwarded = String(getRequestHeader(event, 'x-forwarded-for') || '')
+  if (forwarded) {
+    return forwarded.split(',')[0]?.trim() || 'unknown'
   }
 
-  return imageUrl.includes('image.pollinations.ai') ? fallbackUrl : imageUrl
+  return String(event.node.req.socket.remoteAddress || 'unknown')
+}
+
+const enforceRateLimit = (event: any) => {
+  const key = getClientIp(event)
+  const now = Date.now()
+  const current = rateLimitStore.get(key)
+
+  if (!current || current.resetAt <= now) {
+    rateLimitStore.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS })
+  } else {
+    current.count += 1
+    if (current.count > RATE_LIMIT_MAX_REQUESTS) {
+      const retryAfterSeconds = Math.max(1, Math.ceil((current.resetAt - now) / 1000))
+      setResponseHeader(event, 'Retry-After', retryAfterSeconds)
+      throw createError({ statusCode: 429, statusMessage: 'Too many requests. Please try again shortly.' })
+    }
+  }
+
+  for (const [ip, entry] of rateLimitStore) {
+    if (entry.resetAt <= now) {
+      rateLimitStore.delete(ip)
+    }
+  }
+}
+
+const enforceOriginCheck = (event: any, appUrl: string) => {
+  const origin = String(getRequestHeader(event, 'origin') || '')
+  const referer = String(getRequestHeader(event, 'referer') || '')
+  const appOrigin = new URL(appUrl).origin
+
+  if (origin && origin === appOrigin) {
+    return
+  }
+
+  if (!origin && referer.startsWith(appOrigin)) {
+    return
+  }
+
+  throw createError({ statusCode: 403, statusMessage: 'Forbidden origin.' })
 }
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig()
-
-  const stripeKey = String(config.stripeSecretKey || '')
-  const supabaseUrl = String(config.public.supabaseUrl || '')
-  const supabaseKey = String(config.supabaseServiceKey || config.public.supabaseAnonKey || '')
-
-  if (!stripeKey || !supabaseUrl || !supabaseKey) {
-    throw createError({ statusCode: 500, statusMessage: 'Stripe or Supabase env vars are missing.' })
+  if (event.method !== 'POST') {
+    throw createError({ statusCode: 405, statusMessage: 'Method not allowed.' })
   }
 
+  const config = useRuntimeConfig()
+  const stripeKey = String(config.stripeSecretKey || '')
+  const appUrl = String(config.public.appUrl || 'http://localhost:3000')
+
+  if (!stripeKey) {
+    throw createError({ statusCode: 500, statusMessage: 'Stripe env vars are missing.' })
+  }
+
+  enforceOriginCheck(event, appUrl)
+  enforceRateLimit(event)
+
   const body = await readBody<CheckoutBody>(event)
-  const items = body.items || []
+  const items = (body.items || []).filter((item) => item.slug)
 
   if (!items.length) {
     throw createError({ statusCode: 400, statusMessage: 'Panier vide.' })
   }
 
-  const ids = [...new Set(items.map((item) => item.id).filter((id) => Number.isInteger(id)))]
-  if (!ids.length) {
-    throw createError({ statusCode: 400, statusMessage: 'Produits invalides.' })
-  }
+  const products = await queryCollection(event, 'products').all()
+  const productBySlug = new Map(products.map((product) => [String(product.slug), product]))
 
-  const supabase = createClient(supabaseUrl, supabaseKey, {
-    auth: { persistSession: false }
-  })
-
-  const { data: products, error } = await supabase
-    .from('products')
-    .select('id, slug, name, description, image_url, price_cents')
-    .in('id', ids)
-    .eq('is_active', true)
-
-  if (error || !products?.length) {
-    throw createError({ statusCode: 400, statusMessage: error?.message || 'Aucun produit valide.' })
-  }
-
-  const productsById = new Map<number, ProductRow>()
-  for (const product of products as ProductRow[]) {
-    productsById.set(product.id, product)
-  }
+  const stripe = new Stripe(stripeKey)
+  const baseUrl = appUrl
 
   const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = []
+
   for (const item of items) {
-    const product = productsById.get(item.id)
+    const product = productBySlug.get(item.slug)
     if (!product) {
       continue
     }
 
-    const quantity = Math.min(Math.max(Number(item.quantity || 1), 1), 10)
-    const size = String(item.size || 'M').toUpperCase()
-
     lineItems.push({
-      quantity,
+      quantity: Math.min(Math.max(Number(item.quantity || 1), 1), 10),
       price_data: {
         currency: 'eur',
-        unit_amount: product.price_cents,
+        unit_amount: Math.round(Number(product.price || 0) * 100),
         product_data: {
-          name: `${product.name} - ${size}`,
-          description: product.description,
-          images: [resolveProductImage(product.image_url, product.slug)]
+          name: String(product.title || 'Produit'),
+          description: String(product.description || ''),
+          images: Array.isArray(product.images) && product.images[0] ? [String(product.images[0])] : undefined,
+          metadata: {
+            slug: String(product.slug || ''),
+            size: String(item.size || 'M').toUpperCase()
+          }
         }
       }
     })
@@ -100,9 +125,6 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Aucun produit valide.' })
   }
 
-  const stripe = new Stripe(stripeKey)
-  const baseUrl = getRequestHeader(event, 'origin') || String(config.public.appUrl || 'http://localhost:3000')
-
   const session = await stripe.checkout.sessions.create({
     mode: 'payment',
     success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
@@ -111,6 +133,9 @@ export default defineEventHandler(async (event) => {
     billing_address_collection: 'required',
     shipping_address_collection: {
       allowed_countries: ['FR', 'BE', 'CH', 'LU']
+    },
+    metadata: {
+      cart: JSON.stringify(items.map((item) => ({ slug: item.slug, size: item.size || 'M', quantity: item.quantity })))
     }
   })
 

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 780" role="img" aria-labelledby="auroraBrandTitle auroraBrandDesc">
+  <title id="auroraBrandTitle">Aurora Maison Atelier Paris</title>
+  <desc id="auroraBrandDesc">Aurora logotype with signature A, maison atelier and Paris subtitle</desc>
+  <rect width="1280" height="780" fill="none" />
+
+  <text
+    x="40"
+    y="350"
+    fill="#111111"
+    font-size="430"
+    font-style="italic"
+    font-family="Snell Roundhand, Apple Chancery, URW Chancery L, cursive"
+  >A</text>
+
+  <text
+    x="305"
+    y="365"
+    fill="#111111"
+    font-size="210"
+    letter-spacing="4"
+    font-family="Cormorant Garamond, Garamond, Times New Roman, serif"
+  >URORA</text>
+
+  <text
+    x="640"
+    y="540"
+    text-anchor="middle"
+    fill="#111111"
+    font-size="72"
+    letter-spacing="8"
+    font-family="Montserrat, Avenir Next, Arial, sans-serif"
+    font-weight="500"
+  >MAISON ATELIER</text>
+
+  <text
+    x="640"
+    y="640"
+    text-anchor="middle"
+    fill="#111111"
+    font-size="72"
+    font-family="Montserrat, Avenir Next, Arial, sans-serif"
+    font-weight="400"
+  >Paris</text>
+</svg>

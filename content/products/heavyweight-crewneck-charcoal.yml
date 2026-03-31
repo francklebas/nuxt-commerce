@@ -1,0 +1,62 @@
+productId: 6
+title: Heavyweight Crewneck - Charcoal
+titleFr: Sweat Crewneck Heavyweight - Charbon
+slug: heavyweight-crewneck-charcoal
+price: 109
+category: sweats
+badge: Core line
+badgeFr: Ligne core
+highlight: Brushed cotton 420 g/m2
+highlightFr: Coton brosse 420 g/m2
+description: Oversize sweatshirt in ultra-soft brushed cotton. 420 g/m2 weight, reinforced collar, and premium finishes. The staple you never take off.
+descriptionFr: Sweat oversize en coton brosse ultra-doux 420 g/m2. Col renforce, finitions soignees. Le basique premium que tu portes tous les jours.
+images:
+  - https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80
+sizes:
+  - S
+  - M
+  - L
+  - XL
+composition: French brushed cotton fleece 420 g/m2
+compositionFr: Coton francais brosse 420 g/m2
+fabricWeightGsm: 420
+origin: Knit in France, made in Portugal
+originFr: Maille France, confection Portugal
+care: Wash at 30C, do not tumble dry
+careFr: Lavage 30C, pas de seche-linge
+fitNote: Controlled oversize fit with raglan sleeves.
+fitNoteFr: Coupe oversize maitrisee avec manches raglan.
+sizeChart:
+  - size: S
+    chestCm: 90
+    waistCm: 74
+    hipsCm: 96
+    lengthCm: 67
+  - size: M
+    chestCm: 95
+    waistCm: 79
+    hipsCm: 101
+    lengthCm: 68
+  - size: L
+    chestCm: 100
+    waistCm: 84
+    hipsCm: 106
+    lengthCm: 69
+  - size: XL
+    chestCm: 106
+    waistCm: 90
+    hipsCm: 112
+    lengthCm: 70
+reviews:
+  - author: Theo G.
+    city: Nantes
+    rating: 5
+    date: '2026-03-07'
+    quote: The weight is perfect and the finish feels way above standard sweatshirts.
+  - author: Lucas B.
+    city: Toulouse
+    rating: 5
+    date: '2026-02-20'
+    quote: Super soft inside and holds shape after washing.

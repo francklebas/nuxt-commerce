@@ -30,7 +30,7 @@ const localePath = useLocalePath()
 
       <div v-if="!cartStore.items.length" class="flex flex-1 flex-col items-center justify-center gap-4 p-6 text-center">
         <p class="text-clay-700">{{ t('cart.empty') }}</p>
-        <NuxtLink :to="localePath('/boutique')" class="rounded-full bg-clay-700 px-5 py-2 text-sm font-semibold uppercase tracking-[0.14em] text-white" @click="cartStore.closeDrawer()">
+        <NuxtLink :to="localePath('/boutique')" no-prefetch class="rounded-full bg-clay-700 px-5 py-2 text-sm font-semibold uppercase tracking-[0.14em] text-white" @click="cartStore.closeDrawer()">
           {{ t('home.hero.ctaCollection') }}
         </NuxtLink>
       </div>
@@ -42,9 +42,9 @@ const localePath = useLocalePath()
           class="rounded-2xl border border-clay-500/20 bg-white/90 p-3"
         >
           <div class="flex gap-3">
-            <img :src="item.imageUrl" :alt="item.name" class="h-20 w-16 rounded-xl object-cover">
+            <NuxtImg :src="item.imageUrl" :alt="item.name" class="h-20 w-16 rounded-xl object-cover" width="800" height="1066" decoding="async" loading="lazy" format="webp" />
             <div class="flex-1">
-              <NuxtLink :to="localePath(`/produit/${item.slug}`)" class="font-semibold text-ink-900" @click="cartStore.closeDrawer()">{{ item.name }}</NuxtLink>
+              <NuxtLink :to="localePath(`/produit/${item.slug}`)" no-prefetch class="font-semibold text-ink-900" @click="cartStore.closeDrawer()">{{ item.name }}</NuxtLink>
               <p class="mt-1 text-xs uppercase tracking-[0.15em] text-clay-700">{{ t('product.size') }} {{ item.size }}</p>
               <p class="mt-1 text-sm text-clay-700">{{ (item.priceCents / 100).toFixed(2) }} EUR</p>
             </div>
@@ -70,6 +70,7 @@ const localePath = useLocalePath()
         </p>
         <NuxtLink
           :to="localePath('/panier')"
+          no-prefetch
           class="block rounded-full bg-clay-700 px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.15em] text-white"
           @click="cartStore.closeDrawer()"
         >

@@ -48,6 +48,12 @@ const mapProduct = (entry: any, locale: 'fr' | 'en'): ProductApiItem => ({
 
 export default defineEventHandler(async (event) => {
   const locale = resolveLocale(event)
-  const entries = await queryCollection(event, 'products').all()
-  return entries.map((entry) => mapProduct(entry, locale))
+  const slug = String(getRouterParam(event, 'slug') || '')
+
+  const entry = await queryCollection(event, 'products').where('slug', '=', slug).first()
+  if (!entry) {
+    throw createError({ statusCode: 404, statusMessage: 'Product not found.' })
+  }
+
+  return mapProduct(entry, locale)
 })

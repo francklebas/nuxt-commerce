@@ -1,0 +1,55 @@
+productId: 3
+title: Overshirt Trench - Beige Sable
+slug: trench-aura-cacao
+price: 169
+category: outerwear
+badge: Piece signature
+highlight: Coton-gabardine technique 320 g/m2
+description: Trench overshirt in technical cotton gabardine. Controlled oversize cut with removable belt. A versatile signature piece.
+descriptionFr: Trench overshirt en coton-gabardine technique. Coupe oversize maitrisee, ceinture amovible. Piece polyvalente signature.
+images:
+  - https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80
+sizes:
+  - S
+  - M
+  - L
+  - XL
+composition: 100% coton-gabardine impermeabilise
+fabricWeightGsm: 320
+origin: Confection Roumanie, controle qualite Paris
+care: Nettoyage a sec recommande. Detachage local a froid.
+fitNote: Coupe oversize controlee. Ceinture amovible pour ajuster la taille.
+sizeChart:
+  - size: S
+    chestCm: 90
+    waistCm: 72
+    hipsCm: 96
+    lengthCm: 96
+  - size: M
+    chestCm: 95
+    waistCm: 77
+    hipsCm: 101
+    lengthCm: 97
+  - size: L
+    chestCm: 100
+    waistCm: 82
+    hipsCm: 106
+    lengthCm: 98
+  - size: XL
+    chestCm: 106
+    waistCm: 88
+    hipsCm: 112
+    lengthCm: 99
+reviews:
+  - author: Sarah D.
+    city: Paris
+    rating: 5
+    date: '2026-03-10'
+    quote: Volume parfait, le tissu a de la tenue sans rigidite. Se porte ouvert comme une surchemise.
+  - author: Maya L.
+    city: Geneve
+    rating: 4
+    date: '2026-02-18'
+    quote: Tres belle matiere et coupe moderne. C'est devenu ma piece de transition favorite.

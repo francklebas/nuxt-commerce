@@ -1,0 +1,55 @@
+productId: 1
+title: Tailored Wool Blazer - Noir Onyx
+slug: blazer-nova-sable
+price: 189
+category: tailoring
+badge: Capsule signature
+highlight: Laine vierge italienne 280 g/m2
+description: Structured blazer in Italian virgin wool. Precise cut, defined shoulders, and clean drape. Timeless piece that elevates every outfit.
+descriptionFr: Blazer structure en laine vierge italienne. Coupe precise, epaules marquees, tombe net. Piece intemporelle qui eleve toute tenue.
+images:
+  - https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=800&q=80
+sizes:
+  - XS
+  - S
+  - M
+  - L
+composition: 100% laine vierge italienne, doublure 100% viscose satinee
+fabricWeightGsm: 280
+origin: Confection Portugal, finition atelier Paris
+care: Nettoyage a sec uniquement. Vapeur douce sur cintre.
+fitNote: Coupe droite precise, epaules legerement marquees.
+sizeChart:
+  - size: XS
+    chestCm: 82
+    waistCm: 64
+    hipsCm: 90
+    lengthCm: 68
+  - size: S
+    chestCm: 86
+    waistCm: 68
+    hipsCm: 94
+    lengthCm: 69
+  - size: M
+    chestCm: 90
+    waistCm: 72
+    hipsCm: 98
+    lengthCm: 70
+  - size: L
+    chestCm: 95
+    waistCm: 77
+    hipsCm: 103
+    lengthCm: 71
+reviews:
+  - author: Lea M.
+    city: Lyon
+    rating: 5
+    date: '2026-02-14'
+    quote: Coupe nette, tombant impeccable. Elle fonctionne aussi bien au bureau qu'en layering le week-end.
+  - author: Ines P.
+    city: Paris
+    rating: 5
+    date: '2026-01-29'
+    quote: Tissu dense et finitions tres propres. Le rendu est premium sans etre trop formel.

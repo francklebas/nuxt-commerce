@@ -1,0 +1,61 @@
+productId: 2
+title: Tailored Wool Pants - Creme
+slug: pantalon-flux-creme
+price: 139
+category: bottoms
+badge: Everyday tailoring
+highlight: Laine vierge melangee italienne
+description: Straight-leg pants in Italian virgin wool. Mid-rise waist, sharp pleats, and impeccable drape. Elegant and comfortable silhouette.
+descriptionFr: Pantalon droit en laine vierge italienne. Taille mi-haute, pinces marquees, tombe parfait. Silhouette elegante au quotidien.
+images:
+  - https://images.unsplash.com/photo-1475180098004-ca77a66827be?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=800&q=80
+sizes:
+  - XS
+  - S
+  - M
+  - L
+  - XL
+composition: 72% laine vierge, 26% viscose, 2% elastane
+fabricWeightGsm: 250
+origin: Tissu Italie, confection Portugal
+care: Nettoyage a sec recommande. Repassage doux sur l'envers.
+fitNote: Coupe droite moderne qui allonge la silhouette sans serrer.
+sizeChart:
+  - size: XS
+    chestCm: 80
+    waistCm: 62
+    hipsCm: 89
+    lengthCm: 104
+  - size: S
+    chestCm: 84
+    waistCm: 66
+    hipsCm: 93
+    lengthCm: 105
+  - size: M
+    chestCm: 88
+    waistCm: 70
+    hipsCm: 97
+    lengthCm: 106
+  - size: L
+    chestCm: 93
+    waistCm: 75
+    hipsCm: 102
+    lengthCm: 107
+  - size: XL
+    chestCm: 98
+    waistCm: 80
+    hipsCm: 107
+    lengthCm: 108
+reviews:
+  - author: Camille R.
+    city: Bruxelles
+    rating: 5
+    date: '2026-03-03'
+    quote: Le tombe est parfait et la ligne reste nette toute la journee.
+  - author: Nora V.
+    city: Bordeaux
+    rating: 4
+    date: '2026-02-05'
+    quote: Tres confortable, avec une vraie allure tailleur. Je le porte 4 fois par semaine.

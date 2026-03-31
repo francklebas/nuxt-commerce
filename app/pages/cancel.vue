@@ -1,6 +1,13 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const localePath = useLocalePath()
+
+useSeoMeta(() => ({
+  title: t('seo.cancelTitle'),
+  description: t('seo.cancelDescription'),
+  ogTitle: t('seo.cancelTitle'),
+  ogDescription: t('seo.cancelDescription')
+}))
 </script>
 
 <template>
@@ -11,7 +18,7 @@ const localePath = useLocalePath()
       <p class="mx-auto mt-4 max-w-xl text-amber-800">
         {{ t('checkout.cancel.copy') }}
       </p>
-      <NuxtLink :to="localePath('/panier')" class="mt-8 inline-flex rounded-full bg-amber-800 px-6 py-3 text-sm font-bold uppercase tracking-[0.15em] text-white">
+      <NuxtLink :to="localePath('/panier')" no-prefetch class="mt-8 inline-flex rounded-full bg-amber-800 px-6 py-3 text-sm font-bold uppercase tracking-[0.15em] text-white">
         {{ t('checkout.cancel.cta') }}
       </NuxtLink>
     </section>

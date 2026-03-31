@@ -1,0 +1,56 @@
+productId: 7
+title: Wool Cocoon Coat - Camel
+titleFr: Manteau Cocoon en Laine - Camel
+slug: wool-cocoon-coat-camel
+price: 249
+category: outerwear
+badge: Winter icon
+badgeFr: Icone hiver
+highlight: Italian wool blend 480 g/m2
+highlightFr: Laine melangee italienne 480 g/m2
+description: Cocoon coat in Italian wool blend. Generous volume, shawl collar, and patch pockets. Strong presence with absolute comfort.
+descriptionFr: Manteau cocoon en laine melangee italienne. Volume genereux, col chale, presence forte. Confort et elegance absolus.
+images:
+  - https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80
+sizes:
+  - S
+  - M
+  - L
+composition: 84% wool, 16% polyamide
+compositionFr: 84% laine, 16% polyamide
+fabricWeightGsm: 480
+origin: Fabric from Italy, made in Romania
+originFr: Tissu Italie, confection Roumanie
+care: Dry clean only
+careFr: Nettoyage a sec uniquement
+fitNote: Cocoon silhouette, mid-thigh length.
+fitNoteFr: Silhouette cocoon, longueur mi-cuisse.
+sizeChart:
+  - size: S
+    chestCm: 90
+    waistCm: 72
+    hipsCm: 96
+    lengthCm: 88
+  - size: M
+    chestCm: 95
+    waistCm: 77
+    hipsCm: 101
+    lengthCm: 89
+  - size: L
+    chestCm: 101
+    waistCm: 83
+    hipsCm: 107
+    lengthCm: 90
+reviews:
+  - author: Julie A.
+    city: Geneve
+    rating: 5
+    date: '2026-03-15'
+    quote: Beautiful cocoon shape and very warm without feeling heavy.
+  - author: Adele R.
+    city: Paris
+    rating: 4
+    date: '2026-02-26'
+    quote: Strong silhouette and premium finish. Works with both tailoring and dresses.

@@ -3,6 +3,13 @@ const cartStore = useCartStore()
 const { t } = useI18n()
 const localePath = useLocalePath()
 
+useSeoMeta(() => ({
+  title: t('seo.successTitle'),
+  description: t('seo.successDescription'),
+  ogTitle: t('seo.successTitle'),
+  ogDescription: t('seo.successDescription')
+}))
+
 onMounted(() => {
   cartStore.clear()
 })
@@ -16,7 +23,7 @@ onMounted(() => {
       <p class="mx-auto mt-4 max-w-xl text-green-800">
         {{ t('checkout.success.copy') }}
       </p>
-      <NuxtLink :to="localePath('/boutique')" class="mt-8 inline-flex rounded-full bg-green-800 px-6 py-3 text-sm font-bold uppercase tracking-[0.15em] text-white">
+      <NuxtLink :to="localePath('/boutique')" no-prefetch class="mt-8 inline-flex rounded-full bg-green-800 px-6 py-3 text-sm font-bold uppercase tracking-[0.15em] text-white">
         {{ t('checkout.success.cta') }}
       </NuxtLink>
     </section>

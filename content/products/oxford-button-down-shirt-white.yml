@@ -1,0 +1,68 @@
+productId: 4
+title: Oxford Button-Down Shirt - White
+titleFr: Chemise Oxford Button-Down - Blanc
+slug: oxford-button-down-shirt-white
+price: 89
+category: shirts
+badge: Daily essential
+badgeFr: Essentiel quotidien
+highlight: Egyptian Oxford cotton 180 g/m2
+highlightFr: Coton Oxford egyptien 180 g/m2
+description: Oxford shirt in Egyptian cotton. Straight cut, Italian collar, and mother-of-pearl buttons. An essential piece for refined everyday wear.
+descriptionFr: Chemise Oxford en coton egyptien. Coupe droite, col italien, boutons nacre. L essentielle raffinee.
+images:
+  - https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?auto=format&fit=crop&w=800&q=80
+sizes:
+  - XS
+  - S
+  - M
+  - L
+  - XL
+composition: Egyptian Oxford cotton 180 g/m2
+compositionFr: Coton Oxford egyptien 180 g/m2
+fabricWeightGsm: 180
+origin: Fabric from Egypt, made in Portugal
+originFr: Tissu origine Egypte, confection Portugal
+care: Delicate wash at 30C, low spin, iron inside out
+careFr: Lavage delicat 30C, essorage doux, repassage sur l'envers
+fitNote: Straight fit with a clean shoulder line.
+fitNoteFr: Coupe droite, ligne d'epaule nette.
+sizeChart:
+  - size: XS
+    chestCm: 82
+    waistCm: 64
+    hipsCm: 88
+    lengthCm: 66
+  - size: S
+    chestCm: 86
+    waistCm: 68
+    hipsCm: 92
+    lengthCm: 67
+  - size: M
+    chestCm: 90
+    waistCm: 72
+    hipsCm: 96
+    lengthCm: 68
+  - size: L
+    chestCm: 95
+    waistCm: 77
+    hipsCm: 101
+    lengthCm: 69
+  - size: XL
+    chestCm: 100
+    waistCm: 82
+    hipsCm: 106
+    lengthCm: 70
+reviews:
+  - author: Clara V.
+    city: Paris
+    rating: 5
+    date: '2026-03-04'
+    quote: Crisp fabric, beautiful collar, and perfect under a blazer.
+  - author: Emma L.
+    city: Lille
+    rating: 4
+    date: '2026-02-18'
+    quote: Great daily shirt, clean finish and very easy to style.

@@ -1,79 +1,131 @@
 {
   "header": {
-    "brandTagline": "Ready-to-Wear Atelier",
+    "brandTagline": "Maison Atelier Paris",
     "shop": "Shop",
-    "quickCart": "Quick cart"
+    "quickCart": "Quick cart",
+    "faq": "FAQ",
+    "wishlist": "Wishlist",
+    "darkMode": "Dark",
+    "lightMode": "Light"
   },
   "footer": {
-    "stack": "Made with Nuxt 4, Pinia, Supabase and Stripe.",
+    "stack": "Made with Nuxt 4, Pinia, Nuxt Content and Stripe.",
     "brand": "Aurora Studio 2026"
   },
   "home": {
     "hero": {
-      "badge": "New SS26 capsule",
-      "title": "Premium pieces designed to convert into instant favorites.",
-      "subtitle": "Complete commerce funnel: landing page, social proof, clear offer, and Stripe checkout in a few clicks.",
+      "badge": "Atelier 2026 capsule",
+      "title": "Tailored essentials designed to last beyond one season.",
+      "subtitle": "Three silhouettes built like a real wardrobe: sharp fit, certified fabrics, and tracked delivery.",
       "ctaCollection": "See collection",
       "ctaCart": "Go to cart",
+      "editorialTag": "Studio lookbook",
       "imageAlt": "Collection lookbook",
-      "socialProof": "97% of customers validate fit and fabric quality from the first order."
+      "socialProof": "4.8/5 from first orders: fit, drape, and perceived quality are cited first."
+    },
+    "manifesto": {
+      "kicker": "Art direction",
+      "quote": "A concise wardrobe with sharp cuts, responsible fabrics, and effortless editorial style."
     },
     "funnel": {
       "title": "3-step funnel",
       "step1Title": "1. Visual hook",
-      "step1Copy": "Strong brand universe, premium image, and clear value proposition.",
+      "step1Copy": "Clear art direction, strong hero, and fabric argument from the first screen.",
       "step2Title": "2. Concise offer",
-      "step2Copy": "Three best-sellers with product angle, social proof, and light urgency.",
+      "step2Copy": "Short offer, visible sizing, and concrete details to reduce hesitation.",
       "step3Title": "3. Fast checkout",
-      "step3Copy": "Pinia cart, then secure Stripe redirection with minimal friction."
+      "step3Copy": "Fast add-to-cart, clear recap, and Stripe checkout at funnel exit."
     },
     "products": {
-      "title": "Top 3 products",
+      "title": "Signature collection",
       "viewAll": "View all",
-      "error": "Unable to load Supabase products. Check your environment variables."
+      "error": "Unable to load products. Check your content files and runtime logs."
     },
     "shipping": {
-      "card1Label": "48h shipping",
-      "card1Copy": "Prepared within 24h, tracked shipping in France and Europe.",
+      "card1Label": "24h dispatch",
+      "card1Copy": "Orders are prepared in studio and dispatched within one business day.",
       "card2Label": "30-day returns",
-      "card2Copy": "Stress-free try-on: easy returns and quick refund.",
+      "card2Copy": "Stress-free fitting at home with optional prepaid return label.",
       "card3Label": "Stylist support",
-      "card3Copy": "Sizing and outfit guidance by email, reply within one business day."
+      "card3Copy": "Sizing and styling support by email within one business day."
     },
     "faq": {
       "title": "FAQ",
       "q1": "How do I choose my size?",
-      "a1": "Pick your usual size. If you are between sizes, the size guide suggests choosing one size up.",
+      "a1": "Pick your usual size. If between sizes, choose the larger one for a softer drape.",
       "q2": "What are the delivery times?",
-      "a2": "Orders ship within 24h and arrive in 2 to 4 business days in Europe.",
+      "a2": "France: 48h. Europe: 2 to 4 business days depending on destination.",
       "q3": "Can I return an item?",
-      "a3": "Yes, you have 30 days after delivery to return an unworn item.",
+      "a3": "Yes, returns are accepted within 30 days for unworn items with tags.",
       "q4": "Is payment secure?",
-      "a4": "Yes, checkout uses Stripe with 3D Secure protection and full encryption."
+      "a4": "Yes, Stripe checkout with 3D Secure verification and end-to-end encryption."
+    },
+    "testimonials": {
+      "title": "Customer notes",
+      "quote1": "The blazer fit was spot on, no alteration needed. I wear it from office to dinner.",
+      "author1": "Lea M. - Lyon",
+      "quote2": "The trousers stay sharp all day, even after commuting. Great fabric hand feel.",
+      "author2": "Camille R. - Brussels",
+      "quote3": "Trench arrived in 2 days, solid finishing and modern cut.",
+      "author3": "Sarah D. - Paris"
     }
   },
   "shop": {
     "badge": "Capsule collection",
     "title": "Shop",
-    "subtitle": "All products are synced from Supabase (3 references).",
+    "subtitle": "Catalog synced from Nuxt Content (7 pieces).",
+    "searchPlaceholder": "Search a piece, a fabric...",
     "loading": "Loading...",
-    "error": "Unable to load products."
+    "error": "Unable to load products.",
+    "noResults": "No product matches these filters. Try another size or category.",
+    "wishlistTitle": "Your favorites",
+    "wishlistEmpty": "No favorites yet. Tap the heart on any product to save it.",
+    "goToCart": "Open cart",
+    "filters": {
+      "allCategories": "All categories",
+      "allSizes": "All sizes",
+      "featured": "Featured",
+      "priceAsc": "Price low to high",
+      "priceDesc": "Price high to low"
+    }
   },
   "productCard": {
     "add": "Add",
-    "view": "View"
+    "view": "View",
+    "wishlist": "Add to wishlist"
   },
   "product": {
     "notFound": "Product not found.",
     "size": "Size",
     "sizeGuide": "Size guide: fitted cut. If you are between sizes, choose the larger one.",
+    "detailsTitle": "Product details",
+    "composition": "Composition",
+    "fabricWeight": "Fabric weight",
+    "origin": "Origin",
+    "care": "Care",
+    "fit": "Fit",
+    "sizeChartTitle": "Size guide (cm)",
+    "chest": "Chest",
+    "waist": "Waist",
+    "hips": "Hips",
+    "length": "Length",
+    "reviewsTitle": "Verified reviews",
     "instantOffer": "Instant offer",
     "shippingInfo": "Free shipping above 120 EUR and easy returns for 30 days.",
+    "mobileReady": "Ready to order",
     "addToCart": "Add to cart",
     "checkout": "Checkout",
     "shippingTitle": "Shipping and returns",
     "shippingDetail": "Ships in 24h (except weekends). Tracked delivery in 2 to 4 days across Europe.",
-    "returnsDetail": "Returns within 30 days. Items must be unworn and returned with tags."
+    "returnsDetail": "Returns within 30 days. Items must be unworn and returned with tags.",
+    "categories": {
+      "tailoring": "Tailoring",
+      "bottoms": "Bottoms",
+      "outerwear": "Outerwear",
+      "shirts": "Shirts",
+      "dresses": "Dresses",
+      "sweats": "Sweats"
+    }
   },
   "cart": {
     "title": "Cart",
@@ -111,5 +163,21 @@
       "copy": "Your cart is saved. You can resume checkout anytime.",
       "cta": "Back to cart"
     }
+  },
+  "seo": {
+    "defaultTitle": "AURORA - Maison Atelier Paris",
+    "defaultDescription": "AURORA offers premium essentials: blazers, trenches, shirts, dresses, and coats with secure Stripe checkout.",
+    "homeTitle": "AURORA - Premium Capsule Collection",
+    "homeDescription": "Discover AURORA collection: contemporary tailoring, premium fabrics, and tracked delivery.",
+    "shopTitle": "AURORA Shop",
+    "shopDescription": "Browse AURORA shop and find your perfect piece among our premium capsule essentials.",
+    "cartTitle": "AURORA Cart",
+    "cartDescription": "Complete your AURORA order with secure Stripe checkout in a few clicks.",
+    "successTitle": "Order Confirmed - AURORA",
+    "successDescription": "Payment confirmed. Thank you for your AURORA order.",
+    "cancelTitle": "Payment Canceled - AURORA",
+    "cancelDescription": "Payment was canceled. You can resume checkout anytime.",
+    "productFallbackTitle": "AURORA Product",
+    "productFallbackDescription": "Discover AURORA product details: fit, fabric, size guide, and verified reviews."
   }
 }

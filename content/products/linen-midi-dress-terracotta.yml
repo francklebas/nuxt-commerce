@@ -1,0 +1,62 @@
+productId: 5
+title: Linen Midi Dress - Terracotta
+titleFr: Robe Midi en Lin - Terracotta
+slug: linen-midi-dress-terracotta
+price: 129
+category: dresses
+badge: Summer edit
+badgeFr: Selection d'ete
+highlight: Italian linen 220 g/m2
+highlightFr: Lin italien 220 g/m2
+description: Fluid midi dress in Italian linen. Square neckline, adjustable straps, and natural drape. Effortless summer elegance.
+descriptionFr: Robe midi fluide en lin italien. Encolure carree, bretelles reglables, tombe naturel. Elegance sans effort.
+images:
+  - https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80
+  - https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80
+sizes:
+  - XS
+  - S
+  - M
+  - L
+composition: Italian pre-washed linen 220 g/m2
+compositionFr: Lin italien pre-lave 220 g/m2
+fabricWeightGsm: 220
+origin: Fabric from Italy, made in Portugal
+originFr: Tissu Italie, confection Portugal
+care: Delicate wash at 30C, dry flat, light steam
+careFr: Lavage delicat 30C, sechage a plat, vapeur douce
+fitNote: Fluid fit with an adjustable waist belt.
+fitNoteFr: Coupe fluide avec ceinture amovible reglable.
+sizeChart:
+  - size: XS
+    chestCm: 82
+    waistCm: 64
+    hipsCm: 90
+    lengthCm: 122
+  - size: S
+    chestCm: 86
+    waistCm: 68
+    hipsCm: 94
+    lengthCm: 123
+  - size: M
+    chestCm: 90
+    waistCm: 72
+    hipsCm: 98
+    lengthCm: 124
+  - size: L
+    chestCm: 95
+    waistCm: 77
+    hipsCm: 103
+    lengthCm: 125
+reviews:
+  - author: Manon D.
+    city: Bordeaux
+    rating: 5
+    date: '2026-03-11'
+    quote: Light, flattering, and very elegant with sandals or heels.
+  - author: Zoe P.
+    city: Nice
+    rating: 4
+    date: '2026-02-23'
+    quote: Love the neckline and the fluid drape. Perfect for warm days.
