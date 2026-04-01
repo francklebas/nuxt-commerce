@@ -15,6 +15,19 @@ STRIPE_SECRET_KEY=sk_test_or_sk_live
 STRIPE_WEBHOOK_SECRET=whsec_...
 ```
 
+Optional catalog provider settings:
+
+```bash
+CATALOG_PROVIDER=content
+SANITY_PROJECT_ID=
+SANITY_DATASET=
+SANITY_API_VERSION=2025-01-01
+SANITY_TOKEN=
+```
+
+- Keep `CATALOG_PROVIDER=content` to use YAML catalog files
+- Use `CATALOG_PROVIDER=sanity` to read products from Sanity
+
 ## i18n setup
 
 - Default locale: `en`

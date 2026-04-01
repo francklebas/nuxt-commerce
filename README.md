@@ -2,8 +2,8 @@
 
 **A premium Nuxt 4 storefront for solo operators and small brands — ship your store in a day, not a sprint.**
 
-No commerce backend. No database. No monthly SaaS fees.  
-Products live in YAML files. Payments go through Stripe. Everything else stays out of your way.
+No commerce backend. No database lock-in. No monthly SaaS fees.  
+Products can live in YAML files (default) or a visual CMS adapter (Sanity). Payments go through Stripe.
 
 → **[Live demo](https://nuxt-commerce-flame-chi.vercel.app/)** · [Documentation](#documentation)
 
@@ -11,7 +11,7 @@ Products live in YAML files. Payments go through Stripe. Everything else stays o
 
 ## What's inside
 
-- **Git-based product catalog** — manage products as YAML files, deploy on push
+- **Pluggable product catalog** — YAML by default, optional visual CMS adapter (Sanity)
 - **Stripe Checkout** — hosted payment, address collection, no PCI scope
 - **Bilingual out of the box** — English default, French included (`/fr` prefix strategy)
 - **Light / Dark mode** — system preference + manual toggle
@@ -32,7 +32,7 @@ Products live in YAML files. Payments go through Stripe. Everything else stays o
 | Framework | Nuxt 4 + Vue 3 |
 | Styling | Tailwind CSS |
 | State | Pinia |
-| Catalog | Nuxt Content v3 (YAML) |
+| Catalog | Adapter layer (Nuxt Content YAML / Sanity) |
 | Payments | Stripe Checkout |
 | Runtime | Bun |
 | Deployment | Vercel |
@@ -40,7 +40,7 @@ Products live in YAML files. Payments go through Stripe. Everything else stays o
 ## How it works
 
 ```
-content/products/*.yml
+Catalog adapter (content / sanity)
         ↓
 Nuxt 4 storefront (SSR)
         ↓
@@ -49,7 +49,7 @@ Stripe Checkout (hosted)
 /success or /cancel
 ```
 
-Products are plain YAML files. The server route builds the Stripe session at checkout. No order database, no admin panel — keep it simple until you need more.
+Products are served through a catalog adapter. The server route builds the Stripe session at checkout. No order database, no admin panel — keep it simple until you need more.
 
 ## Quick start
 
@@ -67,6 +67,7 @@ Open `http://localhost:3000`.
 NUXT_PUBLIC_APP_URL=https://your-domain.com
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
+CATALOG_PROVIDER=content
 ```
 
 See `docs/configuration.md` for full setup details.
@@ -97,6 +98,7 @@ Set `STRIPE_SECRET_KEY` in your Vercel environment. Build command: `bun run buil
 | `docs/architecture.md` | Data flow and infrastructure decisions |
 | `docs/configuration.md` | Env vars, i18n, deployment |
 | `docs/catalog-content.md` | Full YAML schema and product management |
+| `docs/cms-adapters.md` | Sanity setup and custom adapter architecture |
 | `docs/payments-stripe.md` | Stripe setup, test mode, going live |
 | `docs/branding-design.md` | Visual system and copy guidelines |
 | `docs/qa-release.md` | Pre-release checklist and Lighthouse |

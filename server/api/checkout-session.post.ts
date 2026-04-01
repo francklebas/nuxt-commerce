@@ -1,4 +1,5 @@
 import Stripe from 'stripe'
+import { getCatalogAdapter } from '../utils/catalog/adapters'
 
 interface CheckoutBody {
   items?: Array<{ slug: string, quantity: number, size?: string }>
@@ -89,7 +90,8 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Panier vide.' })
   }
 
-  const products = await queryCollection(event, 'products').all()
+  const adapter = getCatalogAdapter(event)
+  const products = await adapter.listProducts(event)
   const productBySlug = new Map(products.map((product) => [String(product.slug), product]))
 
   const stripe = new Stripe(stripeKey)
@@ -107,7 +109,7 @@ export default defineEventHandler(async (event) => {
       quantity: Math.min(Math.max(Number(item.quantity || 1), 1), 10),
       price_data: {
         currency: 'eur',
-        unit_amount: Math.round(Number(product.price || 0) * 100),
+        unit_amount: Math.round(Number(product.price) * 100),
         product_data: {
           name: String(product.title || 'Produit'),
           description: String(product.description || ''),

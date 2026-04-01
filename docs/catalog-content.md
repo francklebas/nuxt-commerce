@@ -1,5 +1,8 @@
 # Catalog Management (Nuxt Content)
 
+This guide applies when `CATALOG_PROVIDER=content` (default).
+If you use Sanity or another CMS adapter, see `docs/cms-adapters.md`.
+
 ## Source of truth
 
 All products are managed in:

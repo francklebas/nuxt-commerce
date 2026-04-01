@@ -8,6 +8,7 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const selectedSize = ref('M')
 const selectedImage = ref('')
+const failedPrimaryImages = ref<string[]>([])
 
 const { data: product } = await useFetch<Product>(`/api/products/${String(route.params.slug)}`, {
   key: `product-detail-${String(route.params.slug)}-${locale.value}`,
@@ -19,6 +20,7 @@ watch(
   (value) => {
     selectedImage.value = value?.imageUrls?.[0] || value?.imageUrl || ''
     selectedSize.value = value?.sizes?.[0] || 'M'
+    failedPrimaryImages.value = []
   },
   { immediate: true }
 )
@@ -48,6 +50,33 @@ const formatReviewDate = (value: string) =>
 
 const stars = (rating: number) => '★'.repeat(rating) + '☆'.repeat(Math.max(0, 5 - rating))
 
+const primaryImageSrc = computed(() => {
+  if (!product.value) {
+    return ''
+  }
+
+  if (selectedImage.value) {
+    return selectedImage.value
+  }
+
+  return product.value.imageUrls.find((image) => !failedPrimaryImages.value.includes(image)) || product.value.imageUrl || ''
+})
+
+const handlePrimaryImageError = () => {
+  if (!product.value?.imageUrls?.length) {
+    selectedImage.value = ''
+    return
+  }
+
+  const current = primaryImageSrc.value
+  if (current && !failedPrimaryImages.value.includes(current)) {
+    failedPrimaryImages.value.push(current)
+  }
+
+  const nextImage = product.value.imageUrls.find((image) => !failedPrimaryImages.value.includes(image))
+  selectedImage.value = nextImage || ''
+}
+
 useSeoMeta(() => ({
   title: product.value?.name || t('seo.productFallbackTitle'),
   description: product.value?.description || t('seo.productFallbackDescription'),
@@ -64,7 +93,7 @@ useSeoMeta(() => ({
 
     <section v-else class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
       <div>
-        <NuxtImg :src="selectedImage || product.imageUrl" :alt="product.name" class="editorial-frame h-[520px] w-full rounded-[2rem] object-cover sm:h-[620px]" width="800" height="1066" decoding="async" format="webp" sizes="(max-width: 1024px) 100vw, 55vw" />
+        <img :src="primaryImageSrc" :alt="product.name" class="editorial-frame h-[520px] w-full rounded-[2rem] object-cover sm:h-[620px]" width="800" height="1066" decoding="async" @error="handlePrimaryImageError">
         <div class="mt-4 grid grid-cols-3 gap-3">
           <button
             v-for="image in product.imageUrls"

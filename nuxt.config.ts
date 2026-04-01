@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     }
   },
   image: {
-    domains: ['picsum.photos', 'images.unsplash.com'],
+    domains: ['picsum.photos', 'images.unsplash.com', 'cdn.sanity.io'],
     format: ['webp', 'avif']
   },
   i18n: {
@@ -49,6 +49,11 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+    catalogProvider: process.env.CATALOG_PROVIDER || 'content',
+    sanityProjectId: process.env.SANITY_PROJECT_ID,
+    sanityDataset: process.env.SANITY_DATASET,
+    sanityApiVersion: process.env.SANITY_API_VERSION || '2025-01-01',
+    sanityToken: process.env.SANITY_TOKEN,
     public: {
       appUrl: process.env.NUXT_PUBLIC_APP_URL || 'http://localhost:3000'
     }

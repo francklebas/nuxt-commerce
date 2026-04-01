@@ -3,7 +3,7 @@
 ## Overview
 
 ```text
-Nuxt Content (YAML catalog)
+Catalog adapter (Content YAML or Sanity)
         ->
 Nuxt 4 storefront (SSR)
         ->
@@ -21,10 +21,17 @@ Success / Cancel pages
 
 ## Data flow
 
-1. Product data is stored in `content/products/*.yml`
-2. Pages query content via `queryCollection('products')`
-3. Cart stores selected items in Pinia
-4. Checkout API builds Stripe session and redirects user
+1. Product data is fetched through the catalog adapter resolver
+2. Provider is selected via `CATALOG_PROVIDER` (`content` by default)
+3. Pages fetch products from `/api/products`
+4. Cart stores selected items in Pinia
+5. Checkout API builds Stripe session and redirects user
+
+## Catalog providers
+
+- `content`: Nuxt Content + `content/products/*.yml`
+- `sanity`: Sanity visual CMS documents (`_type == "product"`)
+- See `docs/cms-adapters.md` for adapter internals and custom providers
 
 ## Current constraints
 
