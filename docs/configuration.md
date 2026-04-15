@@ -77,3 +77,10 @@ wrangler pages secret put SHOPIFY_STOREFRONT_ACCESS_TOKEN
 ```bash
 bun run build:deploy
 ```
+
+If you configure commands in Cloudflare CI manually:
+
+- Build command: `bun run build`
+- Deploy command: `npx wrangler --cwd dist pages deploy`
+
+Do not use `npx wrangler deploy` for this project (that command targets Workers, not Pages).
