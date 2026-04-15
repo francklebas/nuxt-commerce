@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Product } from '~/types/product'
 
-const { t, locale } = useI18n()
+const { t, te, locale } = useI18n()
 const localePath = useLocalePath()
 const wishlistStore = useWishlistStore()
 
@@ -48,12 +48,30 @@ const wishlistProducts = computed(() => {
   return source.filter((product) => wishlistStore.hasProduct(product.id))
 })
 
-useSeoMeta(() => ({
-  title: t('seo.shopTitle'),
-  description: t('seo.shopDescription'),
-  ogTitle: t('seo.shopTitle'),
-  ogDescription: t('seo.shopDescription')
-}))
+const availableCategories = computed(() => {
+  const source = products.value || []
+  return Array.from(new Set(source.map((product) => String(product.category || '')).filter(Boolean))).sort()
+})
+
+const categoryLabel = (category: string) => {
+  const translationKey = `product.categories.${category}`
+  if (te(translationKey)) {
+    return t(translationKey)
+  }
+
+  return category
+    .split('-')
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
+}
+
+useSeoMeta({
+  title: () => t('seo.shopTitle'),
+  description: () => t('seo.shopDescription'),
+  ogTitle: () => t('seo.shopTitle'),
+  ogDescription: () => t('seo.shopDescription')
+})
 </script>
 
 <template>
@@ -76,12 +94,7 @@ useSeoMeta(() => ({
 
       <select v-model="selectedCategory" class="rounded-2xl border border-clay-500/30 bg-white px-4 py-3 text-sm text-ink-900 outline-none ring-clay-700/20 transition focus:ring">
         <option value="all">{{ t('shop.filters.allCategories') }}</option>
-        <option value="tailoring">{{ t('product.categories.tailoring') }}</option>
-        <option value="bottoms">{{ t('product.categories.bottoms') }}</option>
-        <option value="outerwear">{{ t('product.categories.outerwear') }}</option>
-        <option value="shirts">{{ t('product.categories.shirts') }}</option>
-        <option value="dresses">{{ t('product.categories.dresses') }}</option>
-        <option value="sweats">{{ t('product.categories.sweats') }}</option>
+        <option v-for="category in availableCategories" :key="category" :value="category">{{ categoryLabel(category) }}</option>
       </select>
 
       <select v-model="selectedSize" class="rounded-2xl border border-clay-500/30 bg-white px-4 py-3 text-sm text-ink-900 outline-none ring-clay-700/20 transition focus:ring">

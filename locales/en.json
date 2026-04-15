@@ -9,7 +9,7 @@
     "lightMode": "Light"
   },
   "footer": {
-    "stack": "Made with Nuxt 4, Pinia, Nuxt Content and Stripe.",
+    "stack": "Made with Nuxt 4, Pinia, Nuxt Content and Shopify.",
     "brand": "Aurora Studio 2026"
   },
   "home": {
@@ -34,7 +34,7 @@
       "step2Title": "2. Concise offer",
       "step2Copy": "Short offer, visible sizing, and concrete details to reduce hesitation.",
       "step3Title": "3. Fast checkout",
-      "step3Copy": "Fast add-to-cart, clear recap, and Stripe checkout at funnel exit."
+      "step3Copy": "Fast add-to-cart, clear recap, and Shopify checkout at funnel exit."
     },
     "products": {
       "title": "Signature collection",
@@ -58,7 +58,7 @@
       "q3": "Can I return an item?",
       "a3": "Yes, returns are accepted within 30 days for unworn items with tags.",
       "q4": "Is payment secure?",
-      "a4": "Yes, Stripe checkout with 3D Secure verification and end-to-end encryption."
+      "a4": "Yes, Shopify checkout with secure payment and end-to-end encryption."
     },
     "testimonials": {
       "title": "Customer notes",
@@ -73,7 +73,7 @@
   "shop": {
     "badge": "Capsule collection",
     "title": "Shop",
-    "subtitle": "Catalog synced from Nuxt Content (7 pieces).",
+    "subtitle": "Catalog synced from Shopify.",
     "searchPlaceholder": "Search a piece, a fabric...",
     "loading": "Loading...",
     "error": "Unable to load products.",
@@ -124,7 +124,10 @@
       "outerwear": "Outerwear",
       "shirts": "Shirts",
       "dresses": "Dresses",
-      "sweats": "Sweats"
+      "sweats": "Sweats",
+      "snowboard": "Snowboards",
+      "accessories": "Accessories",
+      "giftcard": "Gift cards"
     }
   },
   "cart": {
@@ -139,8 +142,8 @@
     "free": "Free",
     "total": "Total",
     "redirecting": "Redirecting...",
-    "pay": "Pay with Stripe",
-    "checkoutError": "Stripe checkout error.",
+    "pay": "Pay with Shopify",
+    "checkoutError": "Shopify checkout error.",
     "toast": {
       "added": "{name} added (size {size}) - quantity {quantity}"
     },
@@ -166,13 +169,13 @@
   },
   "seo": {
     "defaultTitle": "AURORA - Maison Atelier Paris",
-    "defaultDescription": "AURORA offers premium essentials: blazers, trenches, shirts, dresses, and coats with secure Stripe checkout.",
+    "defaultDescription": "AURORA offers premium essentials: blazers, trenches, shirts, dresses, and coats with secure Shopify checkout.",
     "homeTitle": "AURORA - Premium Capsule Collection",
     "homeDescription": "Discover AURORA collection: contemporary tailoring, premium fabrics, and tracked delivery.",
     "shopTitle": "AURORA Shop",
     "shopDescription": "Browse AURORA shop and find your perfect piece among our premium capsule essentials.",
     "cartTitle": "AURORA Cart",
-    "cartDescription": "Complete your AURORA order with secure Stripe checkout in a few clicks.",
+    "cartDescription": "Complete your AURORA order with secure Shopify checkout in a few clicks.",
     "successTitle": "Order Confirmed - AURORA",
     "successDescription": "Payment confirmed. Thank you for your AURORA order.",
     "cancelTitle": "Payment Canceled - AURORA",

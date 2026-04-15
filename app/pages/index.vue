@@ -11,12 +11,12 @@ const { data: products, error } = await useFetch<Product[]>('/api/products', {
 
 const featuredProducts = computed(() => (products.value || []).slice(0, 3))
 
-useSeoMeta(() => ({
-  title: t('seo.homeTitle'),
-  description: t('seo.homeDescription'),
-  ogTitle: t('seo.homeTitle'),
-  ogDescription: t('seo.homeDescription')
-}))
+useSeoMeta({
+  title: () => t('seo.homeTitle'),
+  description: () => t('seo.homeDescription'),
+  ogTitle: () => t('seo.homeTitle'),
+  ogDescription: () => t('seo.homeDescription')
+})
 </script>
 
 <template>

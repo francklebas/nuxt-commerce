@@ -7,9 +7,13 @@
   },
   "scripts": {
     "build": "nuxt build",
+    "postbuild": "node scripts/patch-nitro.js",
+    "build:deploy": "bun run build && bun run deploy",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "preview:cf": "wrangler pages dev dist",
+    "deploy": "wrangler pages deploy dist",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -20,8 +24,10 @@
     "@pinia/nuxt": "^0.11.3",
     "@sanity/client": "^7.20.0",
     "nuxt": "^4.4.2",
-    "stripe": "^21.0.1",
     "vue": "^3.5.30",
     "vue-router": "^5.0.4"
+  },
+  "devDependencies": {
+    "wrangler": "^3.114.0"
   }
 }

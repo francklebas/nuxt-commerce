@@ -34,12 +34,12 @@ const checkout = async () => {
   }
 }
 
-useSeoMeta(() => ({
-  title: t('seo.cartTitle'),
-  description: t('seo.cartDescription'),
-  ogTitle: t('seo.cartTitle'),
-  ogDescription: t('seo.cartDescription')
-}))
+useSeoMeta({
+  title: () => t('seo.cartTitle'),
+  description: () => t('seo.cartDescription'),
+  ogTitle: () => t('seo.cartTitle'),
+  ogDescription: () => t('seo.cartDescription')
+})
 </script>
 
 <template>

@@ -9,7 +9,7 @@
     "lightMode": "Light"
   },
   "footer": {
-    "stack": "Made with Nuxt 4, Pinia, Nuxt Content and Stripe.",
+    "stack": "Made with Nuxt 4, Pinia, Nuxt Content and Shopify.",
     "brand": "Aurora Studio 2026"
   },
   "home": {
@@ -34,7 +34,7 @@
       "step2Title": "2. Offre concise",
       "step2Copy": "Offre courte, tailles disponibles et details concrets pour reduire l'hesitation.",
       "step3Title": "3. Checkout rapide",
-      "step3Copy": "Ajout rapide, recap clair et checkout Stripe en sortie de tunnel."
+      "step3Copy": "Ajout rapide, recap clair et checkout Shopify en sortie de tunnel."
     },
     "products": {
       "title": "La collection signature",
@@ -58,7 +58,7 @@
       "q3": "Puis-je retourner une piece ?",
       "a3": "Oui, retour possible sous 30 jours pour les pieces non portees avec etiquettes.",
       "q4": "Le paiement est-il securise ?",
-      "a4": "Oui, paiement Stripe avec verification 3D Secure et chiffrement de bout en bout."
+      "a4": "Oui, checkout Shopify avec paiement securise et chiffrement de bout en bout."
     },
     "testimonials": {
       "title": "Avis clientes",
@@ -73,7 +73,7 @@
   "shop": {
     "badge": "Collection capsule",
     "title": "Boutique",
-    "subtitle": "Catalogue synchronise depuis Nuxt Content (7 pieces).",
+    "subtitle": "Catalogue synchronise depuis Shopify.",
     "searchPlaceholder": "Rechercher une piece, une matiere...",
     "loading": "Chargement en cours...",
     "error": "Erreur de chargement des produits.",
@@ -124,7 +124,10 @@
       "outerwear": "Outerwear",
       "shirts": "Chemises",
       "dresses": "Robes",
-      "sweats": "Sweats"
+      "sweats": "Sweats",
+      "snowboard": "Snowboards",
+      "accessories": "Accessoires",
+      "giftcard": "Cartes cadeaux"
     }
   },
   "cart": {
@@ -139,8 +142,8 @@
     "free": "Offerte",
     "total": "Total",
     "redirecting": "Redirection...",
-    "pay": "Payer avec Stripe",
-    "checkoutError": "Erreur checkout Stripe.",
+    "pay": "Payer avec Shopify",
+    "checkoutError": "Erreur checkout Shopify.",
     "toast": {
       "added": "{name} ajoute (taille {size}) - quantite {quantity}"
     },
@@ -166,13 +169,13 @@
   },
   "seo": {
     "defaultTitle": "AURORA - Maison Atelier Paris",
-    "defaultDescription": "AURORA propose des essentiels premium: blazers, trenchs, chemises, robes et manteaux avec paiement Stripe securise.",
+    "defaultDescription": "AURORA propose des essentiels premium: blazers, trenchs, chemises, robes et manteaux avec checkout Shopify securise.",
     "homeTitle": "AURORA - Collection Capsule Premium",
     "homeDescription": "Decouvre la collection AURORA: tailoring contemporain, matieres premium et livraison suivie.",
     "shopTitle": "Boutique AURORA",
     "shopDescription": "Parcours la boutique AURORA et trouve la piece ideale parmi les essentials premium de la capsule.",
     "cartTitle": "Panier AURORA",
-    "cartDescription": "Finalise ta commande AURORA via Stripe Checkout, paiement securise en quelques clics.",
+    "cartDescription": "Finalise ta commande AURORA via Shopify Checkout, paiement securise en quelques clics.",
     "successTitle": "Commande confirmee - AURORA",
     "successDescription": "Paiement confirme. Merci pour ta commande AURORA.",
     "cancelTitle": "Paiement annule - AURORA",

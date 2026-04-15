@@ -1,5 +1,5 @@
-import Stripe from 'stripe'
 import { getCatalogAdapter } from '../utils/catalog/adapters'
+import { shopifyStorefrontRequest } from '../utils/shopify/client'
 
 interface CheckoutBody {
   items?: Array<{ slug: string, quantity: number, size?: string }>
@@ -72,12 +72,15 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 405, statusMessage: 'Method not allowed.' })
   }
 
-  const config = useRuntimeConfig()
-  const stripeKey = String(config.stripeSecretKey || '')
+  const config = useRuntimeConfig(event)
   const appUrl = String(config.public.appUrl || 'http://localhost:3000')
+  const provider = String(config.catalogProvider || 'content').toLowerCase()
 
-  if (!stripeKey) {
-    throw createError({ statusCode: 500, statusMessage: 'Stripe env vars are missing.' })
+  if (provider !== 'shopify') {
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Checkout session requires CATALOG_PROVIDER=shopify.'
+    })
   }
 
   enforceOriginCheck(event, appUrl)
@@ -93,11 +96,11 @@ export default defineEventHandler(async (event) => {
   const adapter = getCatalogAdapter(event)
   const products = await adapter.listProducts(event)
   const productBySlug = new Map(products.map((product) => [String(product.slug), product]))
-
-  const stripe = new Stripe(stripeKey)
-  const baseUrl = appUrl
-
-  const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = []
+  const lines: Array<{
+    merchandiseId: string
+    quantity: number
+    attributes: Array<{ key: string, value: string }>
+  }> = []
 
   for (const item of items) {
     const product = productBySlug.get(item.slug)
@@ -105,45 +108,67 @@ export default defineEventHandler(async (event) => {
       continue
     }
 
-    lineItems.push({
+    const size = String(item.size || '').toUpperCase() || 'M'
+    const variants = Array.isArray(product.variants) ? product.variants : []
+    const matchedVariant =
+      variants.find((variant) => String(variant.size || '').toUpperCase() === size) || variants[0]
+
+    if (!matchedVariant?.id) {
+      continue
+    }
+
+    lines.push({
+      merchandiseId: String(matchedVariant.id),
       quantity: Math.min(Math.max(Number(item.quantity || 1), 1), 10),
-      price_data: {
-        currency: 'eur',
-        unit_amount: Math.round(Number(product.price) * 100),
-        product_data: {
-          name: String(product.title || 'Produit'),
-          description: String(product.description || ''),
-          images: Array.isArray(product.images) && product.images[0] ? [String(product.images[0])] : undefined,
-          metadata: {
-            slug: String(product.slug || ''),
-            size: String(item.size || 'M').toUpperCase()
-          }
-        }
-      }
+      attributes: [
+        { key: 'slug', value: String(product.slug || '') },
+        { key: 'size', value: size }
+      ]
     })
   }
 
-  if (!lineItems.length) {
+  if (!lines.length) {
     throw createError({ statusCode: 400, statusMessage: 'Aucun produit valide.' })
   }
 
-  const session = await stripe.checkout.sessions.create({
-    mode: 'payment',
-    success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${baseUrl}/cancel`,
-    line_items: lineItems,
-    billing_address_collection: 'required',
-    shipping_address_collection: {
-      allowed_countries: ['FR', 'BE', 'CH', 'LU']
-    },
-    metadata: {
-      cart: JSON.stringify(items.map((item) => ({ slug: item.slug, size: item.size || 'M', quantity: item.quantity })))
+  const payload = await shopifyStorefrontRequest<{
+    cartCreate?: {
+      cart?: {
+        checkoutUrl?: string
+      }
+      userErrors?: Array<{ message?: string }>
     }
-  })
+  }>(
+    event,
+    `#graphql
+      mutation CartCreate($input: CartInput!) {
+        cartCreate(input: $input) {
+          cart {
+            checkoutUrl
+          }
+          userErrors {
+            message
+          }
+        }
+      }
+    `,
+    {
+      input: {
+        lines
+      }
+    }
+  )
 
-  if (!session.url) {
-    throw createError({ statusCode: 500, statusMessage: 'Impossible de creer la session Stripe.' })
+  const userErrors = payload.cartCreate?.userErrors || []
+  if (userErrors.length) {
+    throw createError({ statusCode: 400, statusMessage: String(userErrors[0]?.message || 'Shopify cart creation failed.') })
   }
 
-  return { url: session.url }
+  const checkoutUrl = String(payload.cartCreate?.cart?.checkoutUrl || '')
+
+  if (!checkoutUrl) {
+    throw createError({ statusCode: 500, statusMessage: 'Impossible de creer le checkout Shopify.' })
+  }
+
+  return { url: checkoutUrl }
 })

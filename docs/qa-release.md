@@ -27,6 +27,6 @@ Target baseline:
 
 ## Release checks
 
-- Env vars set in Vercel
+- Env vars set in Cloudflare Pages
 - Build command uses Bun
 - Manual checkout test in preview environment

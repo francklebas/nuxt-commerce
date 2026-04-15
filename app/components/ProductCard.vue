@@ -4,9 +4,22 @@ import type { Product } from '~/types/product'
 const props = defineProps<{ product: Product }>()
 const cartStore = useCartStore()
 const wishlistStore = useWishlistStore()
-const { t } = useI18n()
+const { t, te } = useI18n()
 const localePath = useLocalePath()
 const isWishlisted = computed(() => wishlistStore.hasProduct(props.product.id))
+
+const categoryLabel = computed(() => {
+  const key = `product.categories.${props.product.category}`
+  if (te(key)) {
+    return t(key)
+  }
+
+  return String(props.product.category || '')
+    .split('-')
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
+})
 
 const quickAdd = () => {
   cartStore.addProduct(props.product, 'M')
@@ -48,7 +61,7 @@ const toggleWishlist = () => {
       <p class="text-sm text-clay-700/90">{{ product.description }}</p>
       <div class="flex items-center justify-between gap-2">
         <p class="text-sm font-semibold uppercase tracking-[0.16em] text-clay-700">{{ product.highlight }}</p>
-        <p class="text-xs uppercase tracking-[0.14em] text-clay-700/80">{{ t(`product.categories.${product.category}`) }}</p>
+        <p class="text-xs uppercase tracking-[0.14em] text-clay-700/80">{{ categoryLabel }}</p>
       </div>
       <div class="flex items-center justify-between pt-2">
         <p class="text-lg font-bold text-ink-900">{{ (product.priceCents / 100).toFixed(2) }} EUR</p>
