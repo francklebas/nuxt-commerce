@@ -95,6 +95,11 @@ bun run build:deploy
 Set `CATALOG_PROVIDER`, `SHOPIFY_STORE_DOMAIN`, `SHOPIFY_STOREFRONT_API_VERSION`, and `NUXT_PUBLIC_APP_URL`
 in Cloudflare Pages environment variables.
 
+If you set Cloudflare CI commands manually, use:
+
+- Build command: `bun run build`
+- Deploy command: `npx wrangler --cwd dist pages deploy`
+
 For this project, use:
 
 ```bash
