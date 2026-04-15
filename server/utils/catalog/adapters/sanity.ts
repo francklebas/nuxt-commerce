@@ -105,7 +105,7 @@ const normalizeSanityProduct = (entry: any): CatalogProduct => ({
   titleFr: optionalString(entry.titleFr),
   slug: normalizeSlug(entry.slug),
   price: Number(entry.price || 0),
-  category: String(entry.category || 'tailoring') as CatalogProduct['category'],
+  category: String(entry.category || 'tailoring'),
   badge: String(entry.badge || ''),
   badgeFr: optionalString(entry.badgeFr),
   highlight: String(entry.highlight || ''),

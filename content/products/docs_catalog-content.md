@@ -96,7 +96,7 @@ All other fields are optional but recommended for a complete product page.
 
 ## Price format
 
-`price` is stored as an **integer in euros**. The server route `checkout-session.post.ts` converts it to cents automatically (`price * 100`) before sending to Stripe. Never store cents in the YAML.
+`price` is stored as an **integer in euros**. The API mapper converts it to cents automatically (`price * 100`) for storefront rendering. Never store cents in the YAML.
 
 ## Add a new product
 

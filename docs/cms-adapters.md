@@ -2,10 +2,10 @@
 
 This template now supports a pluggable catalog source on the server side.
 
-Default behavior stays identical:
+Default behavior:
 
-- Provider: `content`
-- Source: `content/products/*.yml`
+- Provider: `shopify`
+- Source: Shopify Storefront API
 
 You can switch to a visual CMS like Sanity without changing the storefront pages.
 
@@ -14,7 +14,7 @@ You can switch to a visual CMS like Sanity without changing the storefront pages
 - API routes (`/api/products`, `/api/products/[slug]`, `/api/checkout-session`) call a single resolver: `getCatalogAdapter(event)`
 - The selected adapter returns normalized `CatalogProduct` data
 - Mapping to the API response remains centralized in `server/utils/catalog/map.ts`
-- Checkout uses the same normalized data, so Stripe integration is unchanged
+- Checkout uses normalized variants to create a Shopify checkout session
 
 Core files:
 
@@ -23,10 +23,28 @@ Core files:
 - `server/utils/catalog/adapters/index.ts`
 - `server/utils/catalog/adapters/content.ts`
 - `server/utils/catalog/adapters/sanity.ts`
+- `server/utils/catalog/adapters/shopify.ts`
 
 ## Built-in providers
 
-### 1) Nuxt Content (YAML)
+### 1) Shopify (headless storefront)
+
+Use Shopify provider:
+
+```bash
+CATALOG_PROVIDER=shopify
+SHOPIFY_STORE_DOMAIN=your-store.myshopify.com
+SHOPIFY_STOREFRONT_API_VERSION=2025-01
+SHOPIFY_STOREFRONT_ACCESS_TOKEN=shpca_...
+```
+
+Notes:
+
+- Aurora reads products through Storefront GraphQL
+- Checkout redirects users to Shopify hosted checkout URL
+- Orders, customers, shipping operations remain in Shopify admin
+
+### 2) Nuxt Content (YAML)
 
 Use the default provider:
 
@@ -34,7 +52,7 @@ Use the default provider:
 CATALOG_PROVIDER=content
 ```
 
-### 2) Sanity CMS
+### 3) Sanity CMS
 
 Switch provider and set Sanity credentials:
 

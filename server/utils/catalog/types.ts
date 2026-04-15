@@ -4,7 +4,7 @@ export interface CatalogProduct {
   titleFr?: string
   slug: string
   price: number
-  category: 'tailoring' | 'bottoms' | 'outerwear' | 'shirts' | 'dresses' | 'sweats'
+  category: string
   badge: string
   badgeFr?: string
   highlight: string
@@ -36,6 +36,12 @@ export interface CatalogProduct {
     date: string
     quote: string
   }>
+  variants?: Array<{
+    id: string
+    size: string
+    title: string
+    price: number
+  }>
 }
 
 export interface ProductApiItem {
@@ -44,7 +50,7 @@ export interface ProductApiItem {
   slug: string
   description: string
   badge: string
-  category: CatalogProduct['category']
+  category: string
   imageUrl: string
   imageUrls: string[]
   sizes: string[]

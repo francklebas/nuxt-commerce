@@ -4,7 +4,7 @@ export interface Product {
   slug: string
   description: string
   badge: string
-  category: 'tailoring' | 'bottoms' | 'outerwear' | 'shirts' | 'dresses' | 'sweats'
+  category: string
   imageUrl: string
   imageUrls: string[]
   sizes: string[]

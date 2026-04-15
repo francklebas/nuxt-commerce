@@ -3,12 +3,12 @@ const cartStore = useCartStore()
 const { t } = useI18n()
 const localePath = useLocalePath()
 
-useSeoMeta(() => ({
-  title: t('seo.successTitle'),
-  description: t('seo.successDescription'),
-  ogTitle: t('seo.successTitle'),
-  ogDescription: t('seo.successDescription')
-}))
+useSeoMeta({
+  title: () => t('seo.successTitle'),
+  description: () => t('seo.successDescription'),
+  ogTitle: () => t('seo.successTitle'),
+  ogDescription: () => t('seo.successDescription')
+})
 
 onMounted(() => {
   cartStore.clear()

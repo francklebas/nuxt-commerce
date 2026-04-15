@@ -77,12 +77,14 @@ const handlePrimaryImageError = () => {
   selectedImage.value = nextImage || ''
 }
 
-useSeoMeta(() => ({
-  title: product.value?.name || t('seo.productFallbackTitle'),
-  description: product.value?.description || t('seo.productFallbackDescription'),
-  ogTitle: product.value?.name || t('seo.productFallbackTitle'),
-  ogDescription: product.value?.description || t('seo.productFallbackDescription')
-}))
+const productReviews = computed(() => product.value?.reviews || [])
+
+useSeoMeta({
+  title: () => product.value?.name || t('seo.productFallbackTitle'),
+  description: () => product.value?.description || t('seo.productFallbackDescription'),
+  ogTitle: () => product.value?.name || t('seo.productFallbackTitle'),
+  ogDescription: () => product.value?.description || t('seo.productFallbackDescription')
+})
 </script>
 
 <template>
@@ -224,11 +226,11 @@ useSeoMeta(() => ({
       </article>
     </section>
 
-    <section v-if="product.reviews.length" class="mt-10">
+    <section v-if="productReviews.length" class="mt-10">
       <h2 class="text-3xl text-ink-900">{{ t('product.reviewsTitle') }}</h2>
       <div class="mt-4 grid gap-4 md:grid-cols-2">
         <article
-          v-for="review in product.reviews"
+          v-for="review in productReviews"
           :key="`${review.author}-${review.date}`"
           class="rounded-2xl border border-clay-500/20 bg-white/85 p-5"
         >

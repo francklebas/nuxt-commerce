@@ -22,13 +22,13 @@ useHead(() => ({
   titleTemplate: (titleChunk?: string) => titleChunk ? `${titleChunk} | AURORA` : 'AURORA'
 }))
 
-useSeoMeta(() => ({
-  title: t('seo.defaultTitle'),
-  description: t('seo.defaultDescription'),
-  ogTitle: t('seo.defaultTitle'),
-  ogDescription: t('seo.defaultDescription'),
+useSeoMeta({
+  title: () => t('seo.defaultTitle'),
+  description: () => t('seo.defaultDescription'),
+  ogTitle: () => t('seo.defaultTitle'),
+  ogDescription: () => t('seo.defaultDescription'),
   twitterCard: 'summary_large_image'
-}))
+})
 </script>
 
 <template>

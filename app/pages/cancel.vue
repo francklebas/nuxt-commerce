@@ -2,12 +2,12 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 
-useSeoMeta(() => ({
-  title: t('seo.cancelTitle'),
-  description: t('seo.cancelDescription'),
-  ogTitle: t('seo.cancelTitle'),
-  ogDescription: t('seo.cancelDescription')
-}))
+useSeoMeta({
+  title: () => t('seo.cancelTitle'),
+  description: () => t('seo.cancelDescription'),
+  ogTitle: () => t('seo.cancelTitle'),
+  ogDescription: () => t('seo.cancelDescription')
+})
 </script>
 
 <template>
